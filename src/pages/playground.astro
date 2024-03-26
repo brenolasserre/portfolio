@@ -1,0 +1,32 @@
+---
+import Otp from '../components/playground/Otp';
+import Contenedor from '../components/playground/Contenedor';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import Buttons from '../components/playground/Buttons.tsx';
+import '../styles/global.css';
+---
+
+<Layout title='Playground'>
+  <main>
+    <section class='mt-0'>
+      <Contenedor>
+        <Otp length={6} client:load />
+      </Contenedor>
+      <Contenedor>
+        <Buttons />
+      </Contenedor>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  :root {
+    color-scheme: dark;
+  }
+  main {
+    margin: auto;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+  }
+</style>

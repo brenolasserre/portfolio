@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Navbar from '../components/Navbar.jsx';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+// type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description } = Astro.props;
+---
+
+<html lang='en' class='bg-darkBackground-200'>
+  <head>
+    <title>Blog</title>
+    <BaseHead title={title} description={description} />
+  </head>
+  <Navbar client:load />
+  <main>
+    <slot />
+    <!-- <Footer /> -->
+  </main>
+  <div
+    class='gradientTop fixed bottom-0 left-0 z-50 h-[75px] w-full bg-gradient-to-t from-darkBackground-200 via-transparent to-transparent'
+  >
+  </div>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    main {
+      margin: auto;
+      width: 800px;
+      max-width: calc(100% - 2rem);
+    }
+  </style>
+</html>

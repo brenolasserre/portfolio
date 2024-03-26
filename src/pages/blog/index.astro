@@ -1,0 +1,65 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+// const posts = (await getCollection('blog')).sort(
+//   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+// );
+---
+
+<BlogPost>
+  <main>
+    <section>
+      <h2 class='my-0 mb-8 text-3xl font-bold'>Blog</h2>
+      <p>Coming soon</p>
+      <img src='https://media.giphy.com/media/QZIcGPmYMclva/giphy.gif' alt='' />
+      <div class='blogSection'>
+        <!-- <ul>
+          {
+            posts.map((post) => (
+              <li>
+                <a
+                  href={`/blog/${post.slug}/`}
+                  class='flex w-full items-center justify-between py-2'
+                >
+                  <p class='title text-md m-0'>{post.data.title}</p>
+                  <p class='text-md m-0'>
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </a>
+              </li>
+            ))
+          }
+        </ul> -->
+      </div>
+    </section>
+    <main>
+      <style>
+        main {
+          margin: 0 auto !important;
+          width: 800px;
+          max-width: calc(100% - 2rem);
+        }
+        .blogSection a:hover {
+          color: #936de6 !important;
+          filter: opacity(1) !important;
+        }
+        .blogSection li {
+          margin-bottom: 0.6em;
+          display: flex;
+          justify-content: space-between;
+        }
+        .blogSection li:hover {
+          background-color: #261c3a !important;
+          outline: 8px solid #261c3a;
+          color: #936de6;
+          border-radius: 2px;
+        }
+        .blogSection li:hover a {
+          text-decoration-color: #936de6;
+        }
+      </style>
+    </main>
+  </main></BlogPost
+>
