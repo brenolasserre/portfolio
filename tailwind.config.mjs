@@ -10,7 +10,7 @@ export default {
       darkBackground: {
         100: '#181515',
         200: '#131111',
-        300: '#110F0F',
+        300: '#0F120F',
       },
       darkColoredBackground: {
         100: '#2F2A2A',

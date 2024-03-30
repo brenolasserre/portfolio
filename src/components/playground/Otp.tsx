@@ -97,7 +97,7 @@ const Otp = ({ length }: { length: number }) => {
       {codes.map((code, index) => (
         <React.Fragment key={index}>
           {index === length / 2 && (length === 6 || length === 8) && (
-            <span className='mx-1 h-2 w-[1em] rounded-full bg-darkColoredBackground-300'></span>
+            <span className='mx-1 h-2 w-[1em] rounded-full bg-[#161B16]'></span>
           )}
           <input
             ref={(el) => (inputRefs.current[index] = el as HTMLInputElement)}
@@ -109,7 +109,7 @@ const Otp = ({ length }: { length: number }) => {
             maxLength={1}
             pattern='\d*'
             required
-            className='ease font-mono w-[2em] rounded-md border border-border-500 bg-darkColoredBackground-400 py-4 text-center text-xl transition duration-150 focus:outline-none focus:ring focus:ring-darkColoredBackground-100 md:py-6 md:text-3xl'
+            className='ease font-mono w-[2em] rounded-md border border-[#2C352D] bg-[#161B16] py-4 text-center text-xl transition duration-150 focus:outline-none focus:ring focus:ring-[#4d694d] md:py-6 md:text-3xl'
             readOnly={
               codes[index] === '' && codes[index - 1] === '' ? true : false
             }

@@ -2,51 +2,23 @@
 // import BaseHead from '../components/BaseHead.astro';
 // import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Layout from '../layouts/Layout.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Layout title='Breno Lasserre'>
-  <div
-    class='relative h-[18em] w-full border-b border-border-200 bg-darkBackground-100'
-  >
-    <div
-      class='absolute -bottom-[10vh] flex w-full justify-center md:-bottom-[18vh]'
-    >
-      <img src='/grupo.webp' alt='Image' class='w-[800px]md:px-0 px-4' />
-    </div>
-  </div>
-  <main class='md:!mt-0'>
-    <section class='mt-0 md:mt-[12em]'>
-      <div class='mb-1 flex items-center gap-1'>
-        <div class='flex flex-col'>
-          <h4 class='my-0 text-lg text-text-100' style='--stagger: 1;'>
-            Breno Lasserre
-          </h4>
-          <p
-            class='font-xs my-0 text-[14px] text-text-200'
-            style='--stagger: 2;'
-          >
-            Front-End Developer
-          </p>
-        </div>
-      </div>
-
-      <br /><br />
-      <div class='mb-6'>
-        <h5 class='mb-1 text-lg text-text-100' style='--stagger: 3;'>
-          About Me
-        </h5>
-        <p class='text-text-200' style='--stagger: 4;'>
+  <main class='mt-6 md:mt-0'>
+    <div class='!mb-20 flex flex-col gap-3'>
+      <div>
+        <h2 class='text-lg text-[#CFE4D2]'>About Me</h2>
+        <p class='text-sm font-thin text-[#CFE4D2]/60'>
           I’m Breno Lasserre, a 21 year old developer from Argentina. Whether
           I’m creating applications, designing sleek UIs or perfecting the
           smallest details, my passion is always driven by bringing ideas to
           life through technology.
         </p>
       </div>
-
-      <div class='mb-6' style='--stagger: 5;'>
-        <h5 class='mb-1 text-lg text-text-100'>Skills</h5>
-        <p class='text-text-200'>
+      <div>
+        <h2 class='text-lg text-[#CFE4D2]'>Skills</h2>
+        <p class='text-sm font-thin text-[#CFE4D2]/60'>
           I've been always interested in design, and when I started coding two
           years ago, I’ve managed to mix this two worlds. I've learnt
           technologies and skills that let me turn ideas into prototypes: React,
@@ -54,30 +26,92 @@ import Footer from '../components/Footer.astro';
           iconography.
         </p>
       </div>
-      <div class='mb-6' style='--stagger: 6;'>
-        <h5 class='mb-1 text-lg text-text-100'>Learning</h5>
-        <p class='text-text-200'>
+      <div>
+        <h2 class='text-lg text-[#CFE4D2]'>Learning</h2>
+        <p class='text-sm font-thin text-[#CFE4D2]/60'>
           I'm always on a journey of self-improvement, currently diving into
           Next.js and working on personal projects, such as my personal blog -
           where I write about different topics.
         </p>
       </div>
+    </div>
 
-      <div class='relative'>
-        <img
-          src='/map.png'
-          alt='Map of Buenos Aires'
-          class='my-24 rounded-xl'
-        />
-
-        <div
-          class='blue-dot-container absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform'
-        >
-          <div class='blue-dot-ring'></div>
-          <div class='blue-dot'></div>
+    <div class='bg-zinc-50 mx-auto mt-8 grid max-w-4xl grid-cols-12 gap-4 p-1'>
+      <div
+        class='col-span-12 flex h-fit flex-col items-center justify-center gap-2 rounded-3xl border border-[#212822] bg-[#0F120F] p-8 sm:col-span-5'
+      >
+        <div class='flex w-full items-center justify-start gap-3'>
+          <img src='/components.svg' alt='Playground' />
+          <h2 class='mb-0 text-xl text-[#C8D6C7]'>Playground</h2>
+        </div>
+        <div class='w-full'>
+          <p class='w-full text-lg font-medium text-[#8CA189]'>
+            Playground where I test components.
+          </p>
+          <a
+            href='/playground'
+            class='flex !w-full justify-center rounded-xl border border-[#212822] bg-[#182018] px-6 py-2 text-sm !text-[#D6EDDE] !no-underline md:text-base'
+            >Explore Playground</a
+          >
         </div>
       </div>
-    </section>
+      <div
+        class='col-span-12 flex h-fit flex-col items-center justify-center gap-2 rounded-3xl border border-[#212822] bg-[#0F120F] p-8 sm:col-span-7'
+      >
+        <div class='flex w-full items-center justify-start gap-3'>
+          <img src='/book.svg' alt='Blog' />
+          <h2 class='mb-0 text-xl text-[#C8D6C7]'>Writing</h2>
+        </div>
+        <div class='w-full'>
+          <p class='w-full text-lg font-medium text-[#8CA189]'>
+            Blog where I write about stuff. Follow my journey.
+          </p>
+          <a
+            href='/blog'
+            class='flex !w-full justify-center rounded-xl border border-[#212822] bg-[#182018] px-6 py-2 text-sm !text-[#D6EDDE] !no-underline md:text-base'
+            >Read Posts</a
+          >
+        </div>
+      </div>
+
+      <div
+        class='col-span-12 flex h-fit flex-col items-center justify-center gap-2 rounded-3xl border border-[#212822] bg-[#0F120F] p-8 sm:col-span-7'
+      >
+        <div class='flex w-full items-center justify-start gap-3'>
+          <img src='/folder.svg' alt='Playground' />
+          <h2 class='mb-0 text-xl text-[#C8D6C7]'>Projects</h2>
+        </div>
+        <div class='w-full'>
+          <p class='w-full text-lg font-medium text-[#8CA189]'>
+            Explore the projects I’ve been working lately.
+          </p>
+          <a
+            href='/projects'
+            class='flex !w-full justify-center rounded-xl border border-[#212822] bg-[#182018] px-6 py-2 text-sm !text-[#D6EDDE] !no-underline md:text-base'
+            >Explore Projects</a
+          >
+        </div>
+      </div>
+      <div
+        class='col-span-12 flex h-fit flex-col items-center justify-center gap-2 rounded-3xl border border-[#212822] bg-[#0F120F] p-8 sm:col-span-5'
+      >
+        <div class='flex w-full items-center justify-start gap-3'>
+          <img src='/github.svg' alt='Github' />
+          <h2 class='mb-0 text-xl text-[#C8D6C7]'>Github</h2>
+        </div>
+        <div class='w-full'>
+          <p class='w-full text-lg font-medium text-[#8CA189]'>
+            Follow me and let’s connect!
+          </p>
+          <a
+            href='https://github.com/brenolasserre'
+            target='_blank'
+            class='flex !w-full justify-center rounded-xl border border-[#212822] bg-[#182018] px-6 py-2 text-sm !text-[#D6EDDE] !no-underline md:text-base'
+            >Follow Me</a
+          >
+        </div>
+      </div>
+    </div>
   </main>
   <style>
     a {
@@ -111,11 +145,12 @@ import Footer from '../components/Footer.astro';
       color-scheme: dark;
     }
     main {
-      margin: auto;
-      padding: 0 1rem;
-      margin-top: 6em;
       width: 800px;
       max-width: calc(100% - 2rem);
+    }
+    div {
+      animation: enter 0.6s both;
+      animation-delay: calc(var(--stagger) * 100ms);
     }
     p {
       animation: enter 0.6s both;

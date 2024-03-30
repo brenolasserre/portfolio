@@ -40,7 +40,7 @@
 }
 
 html {
-  background-color: #131111;
+  background-color: #050705;
   font-family: 'Inter' !important;
   font-size: 16px;
 }
@@ -55,7 +55,6 @@ body {
 main {
   width: 40%;
   margin: auto;
-  background-color: var(--bodyBackground);
   padding: 55px 15px 0px 15px !important;
   animation: fadeIn 0.5s;
 }
@@ -216,9 +215,35 @@ pre {
 }
 .menu li.active a {
   background: #ffc8dd;
+  transition: 150ms ease;
+}
+
+.maxContent {
+  width: 750px;
+  max-width: calc(100% - 5rem);
+}
+
+.active {
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
 }
 
 .motiondiv {
-  opacity: 0.4 !important;
-  box-shadow: inset 0 3px 3px 0 rgba(192, 158, 158, 0.356);
+  box-shadow: inset 0 2px 1px 0 rgba(133, 239, 146, 0.2);
+  border-radius: 100px;
+  background-color: #1d271e;
+  outline: 0.5px solid #233f26;
+  color: #90ef9b;
+}
+
+.navbar a {
+  transition: 120ms ease;
+}
+
+.navbar a:hover {
+  color: white;
+}
+
+div:not(.motiondiv) {
+  color: #dbeede;
 }
