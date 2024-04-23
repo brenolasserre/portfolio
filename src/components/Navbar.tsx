@@ -25,7 +25,7 @@ export default function Nav() {
 
   return (
     <div>
-      <div className='flex h-[12em] w-full items-end justify-center md:h-[12em]'>
+      <div className='nav flex h-[12em] w-full items-end justify-center md:h-[12em]'>
         <div className='maxContent mb-2 flex flex-col items-center justify-between gap-8 md:mb-14 md:flex-row'>
           <div className='flex items-end gap-2'>
             <div className='h-12 w-12 rounded-full bg-[#70DD7D]'></div>

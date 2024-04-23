@@ -1,14 +1,55 @@
 ---
-import Otp from '../components/playground/Otp';
-import Contenedor from '../components/playground/Contenedor';
+import Resource from '../components/Resource';
 import Layout from '../layouts/Layout.astro';
-import Buttons from '../components/playground/Buttons.tsx';
 import '../styles/global.css';
 ---
 
 <Layout title='Playground'>
   <main>
-    <section class='mt-0'></section>
+    <section class='mt-0'>
+      <Resource
+        nombre='Invisible Details of Interaction Design'
+        categoria='Lectura'
+        icon='https://rauno.me/favicon.svg'
+        url='https://rauno.me/craft/interaction-design'
+        visibleLinkString='rauno.me'
+      />
+      <Resource
+        nombre='Ideas that changed my life'
+        categoria='Lectura'
+        icon='https://collabfund.com/assets/images/apple-touch-icon.png'
+        url='https://collabfund.com/reading/article'
+        visibleLinkString='collabfund.com'
+      />
+      <Resource
+        nombre='This is why Deep Learning is really weird.'
+        categoria='Video'
+        icon='https://www.youtube.com/s/desktop/adea8f15/img/favicon_48x48.png'
+        url='https://www.youtube.com/watch?v=sJXn4Cl4oww'
+        visibleLinkString='youtube.com'
+      />
+      <Resource
+        nombre='Invisible Details of Interaction Design'
+        categoria='Lectura'
+        icon='https://rauno.me/favicon.svg'
+        url='https://rauno.me/craft/interaction-design'
+        visibleLinkString='rauno.me'
+      />
+      <Resource
+        nombre='Ideas that changed my life'
+        categoria='Lectura'
+        icon='https://collabfund.com/assets/images/apple-touch-icon.png'
+        url='https://collabfund.com/reading/article'
+        visibleLinkString='collabfund.com'
+      />
+      <Resource
+        nombre='This is why Deep Learning is really weird.'
+        categoria='Video'
+        icon='https://www.youtube.com/s/desktop/adea8f15/img/favicon_48x48.png'
+        url='https://www.youtube.com/watch?v=sJXn4Cl4oww'
+        visibleLinkString='youtube.com'
+      />
+    </section>
   </main>
 </Layout>
 
@@ -18,7 +59,7 @@ import '../styles/global.css';
   }
   main {
     margin: auto;
-    width: 800px;
+    width: 700px;
     max-width: calc(100% - 2rem);
   }
 

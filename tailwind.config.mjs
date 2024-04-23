@@ -27,7 +27,7 @@ export default {
       },
       text: {
         100: '#EEEEF0',
-        200: '#807F80',
+        200: '#8d978c',
         300: '#B5B2BC',
       },
       spotify: '#1DD05D',

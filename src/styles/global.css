@@ -247,3 +247,9 @@ pre {
 div:not(.motiondiv) {
   color: #dbeede;
 }
+
+.nav {
+  margin: auto;
+  width: 700px;
+  max-width: calc(100% - 2rem);
+}
