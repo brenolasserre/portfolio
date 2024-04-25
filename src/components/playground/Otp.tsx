@@ -109,7 +109,7 @@ const Otp = ({ length }: { length: number }) => {
             maxLength={1}
             pattern='\d*'
             required
-            className='ease font-mono w-[2em] rounded-md border border-[#2C352D] bg-[#161B16] py-4 text-center text-xl transition duration-150 focus:outline-none focus:ring focus:ring-[#4d694d] md:py-6 md:text-3xl'
+            className='ease font-mono shadow-custom w-[2em] rounded-md border border-[#191b17] bg-[#96eb4005] py-4 text-center text-xl transition duration-150 focus:outline-none focus:ring focus:ring-[#a7ff54] md:py-6 md:text-3xl'
             readOnly={
               codes[index] === '' && codes[index - 1] === '' ? true : false
             }

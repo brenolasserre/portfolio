@@ -1,54 +1,13 @@
 ---
-import Resource from '../components/Resource';
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
+import ResourcesComponent from '../components/ResourcesComponent';
 ---
 
 <Layout title='Playground'>
-  <main>
+  <main >
     <section class='mt-0'>
-      <Resource
-        nombre='Invisible Details of Interaction Design'
-        categoria='Lectura'
-        icon='https://rauno.me/favicon.svg'
-        url='https://rauno.me/craft/interaction-design'
-        visibleLinkString='rauno.me'
-      />
-      <Resource
-        nombre='Ideas that changed my life'
-        categoria='Lectura'
-        icon='https://collabfund.com/assets/images/apple-touch-icon.png'
-        url='https://collabfund.com/reading/article'
-        visibleLinkString='collabfund.com'
-      />
-      <Resource
-        nombre='This is why Deep Learning is really weird.'
-        categoria='Video'
-        icon='https://www.youtube.com/s/desktop/adea8f15/img/favicon_48x48.png'
-        url='https://www.youtube.com/watch?v=sJXn4Cl4oww'
-        visibleLinkString='youtube.com'
-      />
-      <Resource
-        nombre='Invisible Details of Interaction Design'
-        categoria='Lectura'
-        icon='https://rauno.me/favicon.svg'
-        url='https://rauno.me/craft/interaction-design'
-        visibleLinkString='rauno.me'
-      />
-      <Resource
-        nombre='Ideas that changed my life'
-        categoria='Lectura'
-        icon='https://collabfund.com/assets/images/apple-touch-icon.png'
-        url='https://collabfund.com/reading/article'
-        visibleLinkString='collabfund.com'
-      />
-      <Resource
-        nombre='This is why Deep Learning is really weird.'
-        categoria='Video'
-        icon='https://www.youtube.com/s/desktop/adea8f15/img/favicon_48x48.png'
-        url='https://www.youtube.com/watch?v=sJXn4Cl4oww'
-        visibleLinkString='youtube.com'
-      />
+      <ResourcesComponent title='Resources' client:load />
     </section>
   </main>
 </Layout>

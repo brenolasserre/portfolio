@@ -18,19 +18,20 @@ const Resource = ({
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className='mb-4 rounded-xl border  border-[#141814] p-6 transition hover:bg-[#0f110f]'>
-      <a href={url} target='_blank' className='flex flex-col gap-1'>
+    <div className='mb-4 rounded-xl border border-[#c9daab15] transition hover:border-[#21241e] hover:bg-[#030303] active:scale-[0.98]'>
+      <a href={url} target='_blank' className=' flex flex-col gap-1 lg:p-6 p-5'>
         <div className='flex flex-col gap-2'>
-          <span className='w-fit rounded-lg !bg-[#70dd7d17] px-3 py-[3px] text-xs text-[#70dd7d]'>
-            {categoria}
+          <span className='monospace w-fit rounded-lg !bg-[#70dd7d0e] px-3 py-[3px] text-xs text-[#a7ff54]'>
+            #{categoria}
           </span>
-          <h5>{nombre}</h5>
+          <h5 className='text-xl lg:text-2xl'>{nombre}</h5>
         </div>
         <div className='flex items-center gap-2'>
           {imgError ? (
-            <div className='h-4 w-4 rounded-full bg-[#70dd7d17]'></div>
+            <div className='h-4 w-4 rounded-full bg-[#a7ff5415]'></div>
           ) : (
             <img
+              loading='lazy'
               src={icon}
               alt={nombre}
               className='w-4 rounded-full'

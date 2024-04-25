@@ -7,7 +7,7 @@ interface ContenedorProps {
 const Contenedor = ({ children }: ContenedorProps) => {
   return (
     <div className='relative'>
-      <div className='max-w-22 relative mb-16 flex w-full flex-col rounded-xl border border-[#141814]  px-4 py-24'>
+      <div className='shadow-custom max-w-22 relative mb-16 flex w-full flex-col rounded-xl border border-[#191b17]  px-4 py-24'>
         {/* <div className='absolute right-0 top-0 p-4'>
         <a href='/' className='ease text-white transition hover:text-[#c7c3ff]'>
           <svg width='20' height='20' fill='currentColor' viewBox='0 0 16 16'>
