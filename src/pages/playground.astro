@@ -1,5 +1,7 @@
 ---
 import Otp from '../components/playground/Otp';
+import Animation from '../components/playground/Animation';
+import Animation3 from '../components/playground/Animation3';
 import Contenedor from '../components/playground/Contenedor';
 import Layout from '../layouts/Layout.astro';
 import Buttons from '../components/playground/Buttons.tsx';
@@ -9,10 +11,17 @@ import '../styles/global.css';
 <Layout title='Playground'>
   <main>
     <section class='mt-0'>
-      <Contenedor>
+      <!-- <Contenedor descripcion=`Animacion de Bloques con Framer Motion`>
+        <Animation3 client:load />
+      </Contenedor> -->
+      <Contenedor descripcion=`Animacion de Bloques con Framer Motion`>
+        <Animation client:load />
+      </Contenedor>
+
+      <Contenedor descripcion='OTP Input para 2FA'>
         <Otp length={6} client:load />
       </Contenedor>
-      <Contenedor>
+      <Contenedor descripcion='Coleccion de botones retro'>
         <Buttons />
       </Contenedor>
     </section>

@@ -15,17 +15,13 @@ const Project = ({
   descripcion,
 }: ProjectProps) => {
   return (
-    <div className='shadow-custom mb-4 h-fit w-full rounded-2xl border border-[#22251f] transition hover:border-[#7caa44] hover:bg-[#a7ff5407] active:scale-[0.98] lg:w-[48%]'>
+    <div className='shadow-custom mb-4 h-fit w-full rounded-2xl border border-[#22251f] transition hover:border-[#305ACE] hover:bg-[#050608] active:scale-[0.98] lg:w-[48%]'>
       <a href={url} target='_blank'>
         <div className='flex flex-col gap-2 p-6'>
           <div className='flex items-center justify-between gap-3'>
-            {/* <span className='flex items-center gap-4'>
-            <a href='/'>Read More</a>
-            <a href='/'>Visit</a>
-          </span> */}
             <div className='mt-2 flex items-center gap-2'>
-              <h5 className='text-white m-0'>{nombre}</h5>
-              <span className='w-fit rounded-lg !bg-[#a7ff540c] px-3 py-[3px] text-xs text-[#a7ff54]'>
+              <h5 className='m-0 text-white'>{nombre}</h5>
+              <span className='w-fit rounded-lg !bg-[#567be218] px-3 py-[3px] text-xs text-[#567ce2]'>
                 {categoria}
               </span>
             </div>

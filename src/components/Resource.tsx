@@ -18,10 +18,10 @@ const Resource = ({
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className='mb-4 rounded-xl border border-[#c9daab15] transition hover:border-[#21241e] hover:bg-[#030303] active:scale-[0.98]'>
-      <a href={url} target='_blank' className=' flex flex-col gap-1 lg:p-6 p-5'>
+    <div className='mb-4 rounded-xl border border-[#191a1d] transition hover:border-[#1a1c25] hover:bg-[#050608] active:scale-[0.98]'>
+      <a href={url} target='_blank' className=' flex flex-col gap-1 p-5 lg:p-6'>
         <div className='flex flex-col gap-2'>
-          <span className='monospace w-fit rounded-lg !bg-[#70dd7d0e] px-3 py-[3px] text-xs text-[#a7ff54]'>
+          <span className='monospace w-fit rounded-lg !bg-[#567be218] px-3 py-[3px] text-xs text-[#567ce2]'>
             #{categoria}
           </span>
           <h5 className='text-xl lg:text-2xl'>{nombre}</h5>
@@ -38,7 +38,9 @@ const Resource = ({
               onError={() => setImgError(true)}
             />
           )}
-          <span className='text-sm text-text-200'>{visibleLinkString}</span>
+          <span className='text-text-200 text-sm font-[400]'>
+            {visibleLinkString}
+          </span>
         </div>
       </a>
     </div>

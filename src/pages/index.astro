@@ -1,114 +1,106 @@
 ---
-// import BaseHead from '../components/BaseHead.astro';
-// import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title='Breno Lasserre'>
+<Layout title='Home'>
   <main class='mt-6 md:mt-0'>
-    <div class='!mb-20 flex flex-col gap-3'>
+    <div class='mb-20 flex flex-col gap-3'>
       <div>
-        <h2 class='text-lg text-[#CFE4D2]'>About Me</h2>
-        <p class='text-sm font-thin text-[#CFE4D2]/60'>
-          I’m Breno Lasserre, a 21 year old developer from Argentina. Whether
-          I’m creating applications, designing sleek UIs or perfecting the
-          smallest details, my passion is always driven by bringing ideas to
-          life through technology.
-        </p>
-      </div>
-      <div>
-        <h2 class='text-lg text-[#CFE4D2]'>Skills</h2>
-        <p class='text-sm font-thin text-[#CFE4D2]/60'>
-          I've been always interested in design, and when I started coding two
-          years ago, I’ve managed to mix this two worlds. I've learnt
-          technologies and skills that let me turn ideas into prototypes: React,
-          JavaScript, Typescript, Tailwind, as well as design like UI/UX and
-          iconography.
-        </p>
-      </div>
-      <div>
-        <h2 class='text-lg text-[#CFE4D2]'>Learning</h2>
-        <p class='text-sm font-thin text-[#CFE4D2]/60'>
-          I'm always on a journey of self-improvement, currently diving into
-          Next.js and working on personal projects, such as my personal blog -
-          where I write about different topics.
+        <h2 class='text-xl text-[#d4d4d4]'>Breno Lasserre</h2>
+        <p class='text-sm font-thin text-[#787878]'>
+          Soy un desarrollador de 21 años que ya sea creando aplicaciones,
+          diseñando interfaces elegantes o perfeccionando los detalles más
+          pequeños, mi pasión siempre se impulsa al llevar ideas a la vida a
+          través de la tecnología.
         </p>
       </div>
     </div>
 
-    <div class='bg-zinc-50 mx-auto mt-8 grid max-w-4xl grid-cols-12 gap-4 p-1'>
+    <div class='mx-auto mt-16 grid max-w-4xl grid-cols-12 gap-4 p-1'>
       <div
-        class='col-span-12 flex h-fit flex-col items-center justify-center gap-2 rounded-3xl border border-[#212822] bg-[#0F120F] p-8 sm:col-span-5'
+        class='col-span-12 flex h-auto flex-col gap-2 rounded-2xl border border-[#191a1d] p-6 sm:col-span-5'
       >
-        <div class='flex w-full items-center justify-start gap-3'>
-          <img src='/components.svg' alt='Playground' />
-          <h2 class='mb-0 text-xl text-[#C8D6C7]'>Playground</h2>
-        </div>
-        <div class='w-full'>
-          <p class='w-full text-lg font-medium text-[#8CA189]'>
-            Playground where I test components.
-          </p>
-          <a
-            href='/playground'
-            class='flex !w-full justify-center rounded-xl border border-[#212822] bg-[#182018] px-6 py-2 text-sm !text-[#D6EDDE] !no-underline md:text-base'
-            >Explore Playground</a
-          >
-        </div>
-      </div>
-      <div
-        class='col-span-12 flex h-fit flex-col items-center justify-center gap-2 rounded-3xl border border-[#212822] bg-[#0F120F] p-8 sm:col-span-7'
-      >
-        <div class='flex w-full items-center justify-start gap-3'>
-          <img src='/book.svg' alt='Blog' />
-          <h2 class='mb-0 text-xl text-[#C8D6C7]'>Writing</h2>
-        </div>
-        <div class='w-full'>
-          <p class='w-full text-lg font-medium text-[#8CA189]'>
-            Blog where I write about stuff. Follow my journey.
-          </p>
-          <a
-            href='/blog'
-            class='flex !w-full justify-center rounded-xl border border-[#212822] bg-[#182018] px-6 py-2 text-sm !text-[#D6EDDE] !no-underline md:text-base'
-            >Read Posts</a
-          >
+        <p class='text-[#787878]'>Tech Stack</p>
+        <p>Front-End Specialist</p>
+        <div class='flex flex-wrap gap-1'>
+          <span class='tag'>React</span>
+          <span class='tag'>Node.js</span>
+          <span class='tag'>TypeScript</span>
+          <span class='tag'>Tailwind</span>
+          <span class='tag'>SCSS</span>
+          <span class='tag'>MySQL</span>
         </div>
       </div>
 
       <div
-        class='col-span-12 flex h-fit flex-col items-center justify-center gap-2 rounded-3xl border border-[#212822] bg-[#0F120F] p-8 sm:col-span-7'
+        class='col-span-12 flex h-auto flex-col justify-between gap-2 rounded-2xl border border-[#191a1d] p-6 sm:col-span-7'
       >
-        <div class='flex w-full items-center justify-start gap-3'>
-          <img src='/folder.svg' alt='Playground' />
-          <h2 class='mb-0 text-xl text-[#C8D6C7]'>Projects</h2>
-        </div>
-        <div class='w-full'>
-          <p class='w-full text-lg font-medium text-[#8CA189]'>
-            Explore the projects I’ve been working lately.
-          </p>
-          <a
-            href='/projects'
-            class='flex !w-full justify-center rounded-xl border border-[#212822] bg-[#182018] px-6 py-2 text-sm !text-[#D6EDDE] !no-underline md:text-base'
-            >Explore Projects</a
-          >
+        <p class='flex items-center gap-2 text-[#787878]'>
+          Escuchando Ahora <span>Spotify</span>
+          <span class='relative flex h-2 w-2'>
+            <span
+              class='absolute inline-flex h-full w-full animate-ping rounded-full bg-[#305ACE] opacity-75'
+            ></span>
+            <span class='relative inline-flex h-2 w-2 rounded-full bg-[#305ACE]'
+            ></span>
+          </span>
+        </p>
+        <div class='flex items-end gap-4'>
+          <img
+            width='80px'
+            class='rounded-xl'
+            src='https://i1.sndcdn.com/artworks-H1tB8kmyptdLsVCV-xu304A-t500x500.jpg'
+            alt='Disco'
+          />
+          <div class='flex flex-col'>
+            <p class=''>Funk You</p>
+            <p class='text-[#787878]'>Kreech</p>
+          </div>
         </div>
       </div>
+
       <div
-        class='col-span-12 flex h-fit flex-col items-center justify-center gap-2 rounded-3xl border border-[#212822] bg-[#0F120F] p-8 sm:col-span-5'
+        class='col-span-12 flex h-auto flex-col gap-2 rounded-2xl border border-[#191a1d] p-6 sm:col-span-7'
       >
-        <div class='flex w-full items-center justify-start gap-3'>
-          <img src='/github.svg' alt='Github' />
-          <h2 class='mb-0 text-xl text-[#C8D6C7]'>Github</h2>
-        </div>
-        <div class='w-full'>
-          <p class='w-full text-lg font-medium text-[#8CA189]'>
-            Follow me and let’s connect!
-          </p>
-          <a
-            href='https://github.com/brenolasserre'
-            target='_blank'
-            class='flex !w-full justify-center rounded-xl border border-[#212822] bg-[#182018] px-6 py-2 text-sm !text-[#D6EDDE] !no-underline md:text-base'
-            >Follow Me</a
-          >
+        <p class='flex items-center gap-2 text-[#787878]'>
+          Ultimas entradas Blog
+        </p>
+        <ul>
+          <li class='mb-2 flex items-center justify-between'>
+            <p class=''>Como sacar los comandos de..</p>
+            <span>14/04/24</span>
+          </li>
+          <li class='mb-2 flex items-center justify-between'>
+            <p class=''>Estudiar por tu cuenta sir..</p>
+            <span>08/04/24</span>
+          </li>
+          <li class='mb-2 flex items-center justify-between'>
+            <p class=''>Compresion de SVG Moderna</p>
+            <span>14/03/24</span>
+          </li>
+        </ul>
+      </div>
+
+      <div
+        class='col-span-12 flex h-auto flex-col gap-2 rounded-2xl border border-[#191a1d] p-6 sm:col-span-5'
+      >
+        <p class='text-[#787878]'>Ubicacion</p>
+        <p>Buenos Aires, Argentina</p>
+
+        <div class='relative'>
+          <img
+            width='100px'
+            height='100px'
+            src='/public/mapa.svg'
+            alt='Mapa de Argentina'
+          />
+          <span class='absolute right-7 top-24 flex h-3 w-3'>
+            <span
+              class='absolute inline-flex h-full w-full animate-ping rounded-full bg-[#305ACE] opacity-75'
+            ></span>
+            <span class='relative inline-flex h-3 w-3 rounded-full bg-[#305ACE]'
+            ></span>
+          </span>
         </div>
       </div>
     </div>
@@ -123,6 +115,16 @@ import Layout from '../layouts/Layout.astro';
       transition: 0.2s ease-in-out;
       filter: opacity(0.65);
     }
+
+    .tag {
+      width: fit-content;
+      border-radius: 20px;
+      border: 1px solid#191a1d;
+      padding: 0.25rem 0.75rem;
+      color: #999999;
+      font-size: 0.7rem;
+    }
+
     .blogSection a:hover {
       color: #936de6 !important;
       filter: opacity(1) !important;
@@ -155,6 +157,7 @@ import Layout from '../layouts/Layout.astro';
     p {
       animation: enter 0.6s both;
       animation-delay: calc(var(--stagger) * 100ms);
+      margin: 0;
     }
     h5,
     h4 {

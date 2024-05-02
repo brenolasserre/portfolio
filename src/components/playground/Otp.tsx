@@ -11,16 +11,6 @@ const Otp = ({ length }: { length: number }) => {
   const [codes, setCodes] = useState<string[]>(Array(length).fill(''));
   const inputRefs = useRef<HTMLInputElement[]>(Array(length).fill(null));
 
-  useEffect(() => {
-    // Hacer focus en el primer input por default
-    for (let i = 0; i < length; i++) {
-      if (!codes[i]) {
-        inputRefs.current[i].focus();
-        break;
-      }
-    }
-  }, []);
-
   const handleChange = (index: number, value: string) => {
     // Usar REGEX para solo permitir numeros
     if (/^\d*$/.test(value)) {
@@ -93,7 +83,7 @@ const Otp = ({ length }: { length: number }) => {
   };
 
   return (
-    <div className='my-12 flex items-center justify-center gap-1 md:gap-2'>
+    <div className=' flex items-center justify-center gap-1 md:gap-2'>
       {codes.map((code, index) => (
         <React.Fragment key={index}>
           {index === length / 2 && (length === 6 || length === 8) && (
@@ -109,22 +99,13 @@ const Otp = ({ length }: { length: number }) => {
             maxLength={1}
             pattern='\d*'
             required
-            className='ease font-mono shadow-custom w-[2em] rounded-md border border-[#191b17] bg-[#96eb4005] py-4 text-center text-xl transition duration-150 focus:outline-none focus:ring focus:ring-[#a7ff54] md:py-6 md:text-3xl'
+            className='ease w-[2em] rounded-lg border border-[#191b17] bg-[#090a0c] py-4 text-center font-mono text-xl transition duration-150 focus:outline-none focus:ring focus:ring-[#305ACE] md:py-6 md:text-3xl'
             readOnly={
               codes[index] === '' && codes[index - 1] === '' ? true : false
             }
           />
         </React.Fragment>
       ))}
-      <style>
-        {`
-          ::selection {
-            background-color: #3ea07a;
-            color: black;
-            background: #3ea07a;
-          }
-        `}
-      </style>
     </div>
   );
 };
