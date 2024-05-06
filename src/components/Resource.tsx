@@ -18,7 +18,7 @@ const Resource = ({
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className='mb-4 rounded-xl border border-[#191a1d] transition hover:border-[#1a1c25] hover:bg-[#050608] active:scale-[0.98]'>
+    <div className='mb-4 rounded-xl border border-[#1e2025] transition hover:border-[#1a1c25] hover:bg-[#050608] active:scale-[0.98]'>
       <a href={url} target='_blank' className=' flex flex-col gap-1 p-5 lg:p-6'>
         <div className='flex flex-col gap-2'>
           <span className='monospace w-fit rounded-lg !bg-[#567be218] px-3 py-[3px] text-xs text-[#567ce2]'>

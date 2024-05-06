@@ -15,7 +15,7 @@ const Project = ({
   descripcion,
 }: ProjectProps) => {
   return (
-    <div className='shadow-custom mb-4 h-fit w-full rounded-2xl border border-[#22251f] transition hover:border-[#305ACE] hover:bg-[#050608] active:scale-[0.98] lg:w-[48%]'>
+    <div className='shadow-custom mb-4 h-fit w-full rounded-2xl border border-[#1e2025] transition hover:border-[#305ACE] hover:bg-[#050608] active:scale-[0.98] lg:w-[48%]'>
       <a href={url} target='_blank'>
         <div className='flex flex-col gap-2 p-6'>
           <div className='flex items-center justify-between gap-3'>

@@ -155,31 +155,31 @@ const ResourcesComponent = ({ title }: ResourcesComponentProps) => {
         <div className='flex flex-wrap gap-2'>
           <button
             onClick={() => toggleFilter('Todos')}
-            className={`w-fit cursor-pointer rounded-xl border border-[#191a1d] px-3 py-1 text-xs text-[#999999] ${activeFilters.includes('Todos') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
+            className={`w-fit cursor-pointer rounded-xl border border-[#1e2025] px-3 py-1 text-xs text-[#999999] ${activeFilters.includes('Todos') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
           >
             Todos
           </button>
           <button
             onClick={() => toggleFilter('Herramienta')}
-            className={`w-fit cursor-pointer rounded-xl border border-[#191a1d] px-3 py-1 text-xs text-[#999999] ${activeFilters.includes('Herramienta') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
+            className={`w-fit cursor-pointer rounded-xl border border-[#1e2025] px-3 py-1 text-xs text-[#999999] ${activeFilters.includes('Herramienta') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
           >
             Herramienta
           </button>
           <button
             onClick={() => toggleFilter('Lectura')}
-            className={`w-fit cursor-pointer rounded-xl border border-[#191a1d] px-3 py-1 text-xs text-[#999999] ${activeFilters.includes('Lectura') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
+            className={`w-fit cursor-pointer rounded-xl border border-[#1e2025] px-3 py-1 text-xs text-[#999999] ${activeFilters.includes('Lectura') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
           >
             Lectura
           </button>
           <button
             onClick={() => toggleFilter('Video')}
-            className={`w-fit cursor-pointer rounded-xl border border-[#191a1d] px-3 py-1 text-xs text-[#999999] ${activeFilters.includes('Video') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
+            className={`w-fit cursor-pointer rounded-xl border border-[#1e2025] px-3 py-1 text-xs text-[#999999] ${activeFilters.includes('Video') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
           >
             Video
           </button>
           <button
             onClick={() => toggleFilter('Persona')}
-            className={`w-fit cursor-pointer rounded-xl border border-[#191a1d] px-4 py-1 text-xs text-[#999999] ${activeFilters.includes('Persona') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
+            className={`w-fit cursor-pointer rounded-xl border border-[#1e2025] px-4 py-1 text-xs text-[#999999] ${activeFilters.includes('Persona') ? 'bg-[#fff] !text-[#1b1b1b]' : '!bg-[#ffffff09]'}`}
           >
             Persona
           </button>
