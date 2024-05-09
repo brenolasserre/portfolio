@@ -30,7 +30,6 @@ export default function SmoothButton() {
           }, 3500);
         }}
       >
-        {' '}
         <AnimatePresence mode='popLayout' initial={false}>
           <motion.span
             transition={{ type: 'spring', duration: 0.3, bounce: 0 }}

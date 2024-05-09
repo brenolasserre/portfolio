@@ -1,9 +1,10 @@
 ---
 import Otp from '../components/playground/Otp';
-import Animation from '../components/playground/Animation';
+import Modal from '../components/playground/Modal';
 import Animation2 from '../components/playground/Animation2';
+
 import Reload from '../components/playground/Reload';
-import Animation5 from '../components/playground/Animation5';
+import AppStore from '../components/playground/AppStore';
 import Contenedor from '../components/playground/Contenedor';
 import Layout from '../layouts/Layout.astro';
 import Buttons from '../components/playground/Buttons.tsx';
@@ -13,20 +14,18 @@ import '../styles/global.css';
 <Layout title='Playground'>
   <main>
     <section class='mt-0'>
-      <Contenedor descripcion=`Animacion de Bloques con Framer Motion`>
-        <Animation5 client:load />
+      <Contenedor descripcion=`Modal`>
+        <Modal client:load />
       </Contenedor>
-
+      <Contenedor descripcion=`What To Watch`>
+        <AppStore client:load />
+      </Contenedor>
       <Contenedor descripcion=`MicroInteraction: Animacion de Reload`>
         <Reload client:load />
       </Contenedor>
       <Contenedor descripcion=`Animacion de Bloques con Framer Motion`>
         <Animation2 client:load />
       </Contenedor>
-      <Contenedor descripcion=`Animacion de Bloques con Framer Motion`>
-        <Animation client:load />
-      </Contenedor>
-
       <Contenedor descripcion='OTP Input para 2FA'>
         <Otp length={6} client:load />
       </Contenedor>
