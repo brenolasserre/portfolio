@@ -25,14 +25,14 @@ export default function SharedLayout() {
   } = {
     idle: 'Delete Project',
     idle2: 'Delete',
-    loading: 'Loading...',
+    loading: 'Deleting...',
     success: 'Deleted Succesfully',
   };
 
   return (
     <div className='relative flex h-full w-full flex-col items-center justify-center'>
       <MotionConfig
-        transition={{ type: 'spring', bounce: 0.25, duration: 0.55 }}
+        transition={{ type: 'spring', bounce: 0.25, duration: 0.8 }}
       >
         {modalOpen ? (
           <motion.div
@@ -40,7 +40,7 @@ export default function SharedLayout() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className='pointer-events-none absolute inset-0 top-0 h-full w-full bg-black/20'
+            className='pointer-events-none absolute inset-0 top-0 h-full w-full bg-black/10'
           />
         ) : null}
 
@@ -49,7 +49,7 @@ export default function SharedLayout() {
             <motion.div
               className='z-40 w-4/5 p-6 text-center md:w-1/2 '
               layoutId='modal-wrapper'
-              style={{ borderRadius: 28, background: '#060606' }}
+              style={{ borderRadius: 28, background: '#080808' }}
             >
               <motion.div layoutId='modal'>
                 <div className='header'>
@@ -58,9 +58,17 @@ export default function SharedLayout() {
                       <motion.div
                         key={buttonState}
                         layoutId='content'
-                        initial={{ x: 0, y: 60, opacity: 0 }}
-                        animate={{ x: 0, y: 0, opacity: 1 }}
-                        exit={{ x: -20, y: 60, opacity: 0 }}
+                        initial={{
+                          y: 50,
+                          opacity: 0,
+                          filter: 'blur(4px)',
+                        }}
+                        animate={{
+                          y: 0,
+                          opacity: 1,
+                          filter: 'blur(0px)',
+                        }}
+                        exit={{ y: 50, opacity: 0, filter: 'blur(4px)' }}
                         className='mb-8'
                       >
                         <span className='my-4 flex items-center justify-center'>
@@ -72,6 +80,7 @@ export default function SharedLayout() {
                             className='h-7 w-7'
                           >
                             <motion.path
+                              layoutId='icon'
                               transition={{
                                 yoyo: Infinity,
                                 ease: 'easeInOut',
@@ -115,19 +124,22 @@ export default function SharedLayout() {
                           exit={{ x: -50, opacity: 0 }}
                           className='mb-8'
                         >
-                          <svg
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            strokeWidth={1.5}
-                            stroke='currentColor'
-                            className='mx-auto mb-4 h-8 w-8'
-                          >
-                            <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              d='M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z'
-                            />
-                          </svg>
+                          <span className='my-4 flex items-center justify-center'>
+                            <svg
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              strokeWidth={1.5}
+                              stroke='white'
+                              className='h-7 w-7'
+                            >
+                              <motion.path
+                                layoutId='icon'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z'
+                              />
+                            </svg>
+                          </span>
                           <motion.h2
                             layoutId='header'
                             exit={{ y: 20, filter: 'blur(2px)' }}
@@ -157,8 +169,24 @@ export default function SharedLayout() {
                           setModalOpen((prevState: boolean) => !prevState);
                           setButtonState('idle');
                         }}
-                        animate={{ opacity: 1, filter: 'blur(0px)' }}
-                        exit={{ opacity: 0, filter: 'blur(4px)' }}
+                        initial={{
+                          x: 40,
+                          opacity: 0,
+                          scale: 0.1,
+                          filter: 'blur(4px)',
+                        }}
+                        animate={{
+                          x: 0,
+                          opacity: 1,
+                          scale: 1,
+                          filter: 'blur(0px)',
+                        }}
+                        exit={{
+                          x: 40,
+                          opacity: 0,
+                          scale: 0.1,
+                          filter: 'blur(4px)',
+                        }}
                         style={{
                           fontSize: 16,
                           borderRadius: 10,
@@ -210,7 +238,7 @@ export default function SharedLayout() {
                           viewBox='0 0 24 24'
                           strokeWidth={2}
                           stroke='currentColor'
-                          className='h-5 w-5'
+                          className='h-4 w-4'
                         >
                           <path
                             strokeLinecap='round'
