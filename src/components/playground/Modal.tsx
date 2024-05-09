@@ -47,7 +47,7 @@ export default function SharedLayout() {
         <AnimatePresence mode='popLayout'>
           {modalOpen ? (
             <motion.div
-              className='z-40 w-1/2 p-6 text-center '
+              className='z-40 w-4/5 p-6 text-center md:w-1/2 '
               layoutId='modal-wrapper'
               style={{ borderRadius: 28, background: '#060606' }}
             >
