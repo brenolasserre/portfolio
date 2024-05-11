@@ -4,23 +4,23 @@ import '../../styles/global.css';
 
 export default function Movies() {
   return (
-    <MotionConfig transition={{ duration: 0.4, type: 'spring', bounce: 0 }}>
+    <MotionConfig transition={{ duration: 0.3, type: 'spring', bounce: 0 }}>
       <AnimatePresence mode='popLayout'>
-        <div className='flex h-full w-full cursor-pointer justify-center gap-1 '>
+        <div className='flex h-full w-full cursor-pointer justify-center gap-1 p-20 '>
           {/* <h3>What To Watch</h3> */}
           <motion.div
             style={{ width: '20%' }}
-            whileHover={{ width: '30%' }}
+            whileHover={{ width: '50%' }}
             className='h-full rounded-l-xl bg-[url("/movies/uncutgems.jpg")] bg-cover bg-center'
           ></motion.div>
           <motion.div
             style={{ width: '20%' }}
-            whileHover={{ width: '30%' }}
+            whileHover={{ width: '50%' }}
             className=' h-full  bg-[url("/movies/her.jpg")] bg-cover bg-center'
           ></motion.div>
           <motion.div
             style={{ width: '20%' }}
-            whileHover={{ width: '30%', filter: 'contrast(-10px)' }}
+            whileHover={{ width: '50%', filter: 'contrast(-10px)' }}
             className='h-full rounded-r-xl  bg-[url("/movies/ozark.jpg")] bg-cover bg-center'
           ></motion.div>
         </div>

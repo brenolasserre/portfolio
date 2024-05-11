@@ -11,7 +11,6 @@ export default function SharedLayout() {
         setModalOpen(false);
       }
     }
-
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
@@ -21,33 +20,59 @@ export default function SharedLayout() {
     idle: string;
     idle2: string;
     loading: string;
-    success: string;
   } = {
     idle: 'Delete Project',
     idle2: 'Delete',
     loading: 'Deleting...',
-    success: 'Deleted Succesfully',
   };
 
   return (
-    <div className='relative flex h-full w-full flex-col items-center justify-center'>
-      <MotionConfig transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}>
+    <div className='relative mx-auto mb-12 flex h-full w-5/6 flex-col items-center justify-center rounded-b-[50px] border-[7px] border-t-0 border-black bg-[#010409] px-6 pb-10 pt-1 md:w-1/2 '>
+      <MotionConfig transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}>
         {modalOpen ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className='pointer-events-none absolute inset-0 top-0 h-full w-full bg-red-700/20'
+            className='pointer-events-none absolute inset-0 top-0 h-full w-full rounded-b-[44px] bg-red-700/20 backdrop-blur-[4px]'
           />
         ) : null}
+
+        <div>
+          <ul className='flex flex-col gap-2'>
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#E6EDF3] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
+              <img className='rounded-none' src='/modal/2.svg' />
+              My Projects
+            </li>
+            <li className='flex items-center gap-2 rounded-md bg-[#06090e] px-3 py-2 text-sm text-[#E6EDF3]'>
+              <img className='rounded-none' src='/modal/7.svg' />
+              Settings
+            </li>
+
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#E6EDF3] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
+              <img className='rounded-none' src='/modal/5.svg' />
+              Collaborators
+            </li>
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#E6EDF3] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
+              <img className='rounded-none' src='/modal/6.svg' />
+              Security
+            </li>
+          </ul>
+
+          <p className='mt-8 text-sm text-zinc-300'>Delete this project</p>
+
+          <p className='mb-8 text-sm text-zinc-600'>
+            Once you delete a project, there is no going back. Please be
+            certain.
+          </p>
+        </div>
 
         <AnimatePresence mode='popLayout'>
           {modalOpen ? (
             <motion.div
-              className='z-40 w-4/5 p-6 text-center md:w-1/2 '
+              className='custom-width absolute bottom-4 z-40 p-8 text-center '
               layoutId='modal-wrapper'
-              style={{ borderRadius: 28, background: '#080808' }}
+              style={{ borderRadius: 36, background: '#010409' }}
             >
               <motion.div layoutId='modal'>
                 <div className='header'>
@@ -57,7 +82,7 @@ export default function SharedLayout() {
                         key={buttonState}
                         layoutId='content'
                         initial={{
-                          y: 20,
+                          y: 10,
                           opacity: 0,
                           filter: 'blur(2px)',
                         }}
@@ -66,11 +91,20 @@ export default function SharedLayout() {
                           opacity: 1,
                           filter: 'blur(0px)',
                         }}
-                        exit={{ y: 20, opacity: 0, filter: 'blur(2px)' }}
+                        transition={{ duration: 0.2 }}
+                        exit={{ y: 10, opacity: 0, filter: 'blur(2px)' }}
                         className='mb-8'
                       >
-                        <span className='my-4 flex items-center justify-center'>
-                          <svg
+                        <motion.span
+                          layoutId='icon-span'
+                          layout='position'
+                          className='mb-4 mt-2 flex items-center justify-center'
+                        >
+                          <motion.svg
+                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ y: 20, opacity: 0 }}
+                            layout='position'
+                            layoutId='icon-outer'
                             fill='none'
                             viewBox='0 0 24 24'
                             strokeWidth={1.5}
@@ -78,6 +112,7 @@ export default function SharedLayout() {
                             className='h-7 w-7'
                           >
                             <motion.path
+                              layout='position'
                               layoutId='icon'
                               transition={{
                                 yoyo: Infinity,
@@ -97,20 +132,19 @@ export default function SharedLayout() {
                               strokeLinejoin='round'
                               d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z'
                             />
-                          </svg>
-                        </span>
-
+                          </motion.svg>
+                        </motion.span>
                         <motion.h2
                           layoutId='header'
                           layout='position'
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
-                          className='my-2 text-2xl font-semibold text-white'
+                          exit={{ opacity: 0 }}
+                          className='my-2 text-xl font-semibold text-white'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
                             layoutId='header-1'
-                            layout='position'
                           >
                             Are you sure?
                           </motion.span>
@@ -121,12 +155,12 @@ export default function SharedLayout() {
                           layoutId='header-text'
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
-                          className='text-zinc-400'
+                          exit={{ opacity: 0 }}
+                          className='text-[15px] text-zinc-400'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
                             layoutId='paragraph-1'
-                            layout='position'
                           >
                             This action is not reversible. You will delete your
                             project and all of the information you've stored.
@@ -134,62 +168,59 @@ export default function SharedLayout() {
                         </motion.p>
                       </motion.div>
                     ) : (
-                      <AnimatePresence mode='popLayout'>
-                        <motion.div
-                          layoutId='content'
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ x: -50, opacity: 0 }}
-                          className='mb-8'
+                      <motion.div
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.8, opacity: 0 }}
+                        layoutId='content'
+                        className='mb-8'
+                      >
+                        <motion.span
+                          layout='position'
+                          layoutId='icon-span'
+                          className='mb-4 mt-2  flex items-center justify-center'
                         >
-                          <span className='my-4 flex items-center justify-center'>
-                            <svg
-                              fill='none'
-                              viewBox='0 0 24 24'
-                              strokeWidth={1.5}
-                              stroke='white'
-                              className='h-7 w-7'
-                            >
-                              <motion.path
-                                layoutId='icon'
-                                strokeLinecap='round'
-                                strokeLinejoin='round'
-                                d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z'
-                              />
-                            </svg>
-                          </span>
-                          <motion.h2
-                            layoutId='header'
+                          <motion.svg
+                            layoutId='icon-outer'
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            strokeWidth={1.5}
+                            stroke='white'
+                            className='h-7 w-7'
+                          >
+                            <motion.path
+                              layoutId='icon'
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              d='M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+                            />
+                          </motion.svg>
+                        </motion.span>
+                        <motion.h2
+                          layoutId='header'
+                          layout='position'
+                          className='my-2 text-xl font-semibold text-white'
+                        >
+                          <motion.span
+                            className='flex items-center justify-center gap-1 '
+                            layoutId='header-1'
+                          >
+                            Deleting Project
+                          </motion.span>
+                        </motion.h2>
+                        <motion.p
+                          layout
+                          layoutId='header-text'
+                          className='text-[15px] text-zinc-400'
+                        >
+                          <motion.span
+                            className='flex items-center justify-center gap-1'
+                            layoutId='paragraph-1'
                             layout='position'
-                            exit={{ y: 20, filter: 'blur(2px)' }}
-                            animate={{ y: 0, filter: 'blur(0px)' }}
-                            className='my-2 text-2xl font-semibold text-white'
                           >
-                            <motion.span
-                              className='flex items-center justify-center gap-1'
-                              layoutId='header-1'
-                              layout='position'
-                            >
-                              Deleting Project
-                            </motion.span>
-                          </motion.h2>
-                          <motion.p
-                            layout
-                            layoutId='header-text'
-                            exit={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className='text-zinc-400'
-                          >
-                            <motion.span
-                              className='flex items-center justify-center gap-1'
-                              layoutId='paragraph-1'
-                              layout='position'
-                            >
-                              Tip: You can create new projects anytime at
-                              /projects.
-                            </motion.span>
-                          </motion.p>
-                        </motion.div>
-                      </AnimatePresence>
+                            This process may take a moment, please wait.
+                          </motion.span>
+                        </motion.p>
+                      </motion.div>
                     )}
 
                     <div className='flex w-full items-center gap-2'>
@@ -219,12 +250,8 @@ export default function SharedLayout() {
                         }}
                         style={{
                           fontSize: 16,
-                          borderRadius: 10,
-                          display:
-                            buttonState === 'loading' ||
-                            buttonState === 'success'
-                              ? 'none'
-                              : 'block',
+                          borderRadius: 14,
+                          display: buttonState === 'idle2' ? 'block' : 'none',
                         }}
                         className='w-1/2 rounded-full bg-[#EDEDED] py-2 text-black'
                       >
@@ -232,39 +259,40 @@ export default function SharedLayout() {
                       </motion.button>
                       <motion.button
                         whileTap={{
-                          scale:
-                            buttonState === 'loading' ||
-                            buttonState === 'success'
-                              ? 1
-                              : 0.9,
+                          scale: buttonState === 'loading' ? 1 : 0.9,
                         }}
                         layoutId='button-layout'
                         style={{
                           fontSize: 16,
-                          borderRadius: 10,
-                          width:
-                            buttonState === 'loading' ||
-                            buttonState === 'success'
-                              ? '100%'
-                              : '50%',
+                          borderRadius: 14,
+                          width: buttonState === 'loading' ? '100%' : '50%',
                         }}
-                        className='flex items-center justify-center gap-1 bg-[#230D0E] py-2 text-[#DA3036]'
-                        disabled={
-                          buttonState === 'loading' || buttonState === 'success'
-                        }
+                        className='relative flex items-center justify-center gap-1 bg-[#230D0E] py-2 text-[#DA3036]'
+                        disabled={buttonState === 'loading'}
                         onClick={() => {
                           setButtonState('loading');
                           setTimeout(() => {
-                            setButtonState('success');
-                          }, 1750);
-                          setTimeout(() => {
-                            setModalOpen((prevState: boolean) => !prevState);
                             setButtonState('idle');
+                            setModalOpen((prevState: boolean) => !prevState);
                           }, 3000);
                         }}
                       >
+                        {buttonState === 'loading' && (
+                          <motion.span
+                            style={{
+                              borderRadius: 14,
+                              width: 0,
+                            }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1, width: '100%' }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 1 }}
+                            className='absolute left-0 top-0 h-full bg-[#DA3036]/10'
+                          ></motion.span>
+                        )}
+
                         <motion.span
-                          className='flex items-center justify-center gap-1'
+                          className='z-10 flex items-center justify-center gap-1'
                           layoutId='delete-button'
                           layout='position'
                         >
@@ -291,15 +319,13 @@ export default function SharedLayout() {
             </motion.div>
           ) : null}
         </AnimatePresence>
-
         <AnimatePresence mode='popLayout' initial={false}>
           <motion.div
             layoutId='modal-wrapper'
-            className='table-cell w-fit align-middle'
+            className='table-cell w-full align-middle'
             style={{
               borderRadius: 30,
               background: 'transparent',
-              display: modalOpen ? 'none' : 'block',
             }}
           >
             <motion.div layoutId='modal' className='inner'>
@@ -311,7 +337,7 @@ export default function SharedLayout() {
                     setButtonState('idle2');
                   }}
                   layoutId='button-layout'
-                  style={{ fontSize: 16, borderRadius: 10, width: '100%' }}
+                  style={{ fontSize: 16, borderRadius: 14, width: '100%' }}
                   className=' bg-[#230D0E] px-20 py-2 text-[#DA3036]'
                 >
                   <motion.span layoutId='delete-button' layout='position'>
@@ -325,30 +351,4 @@ export default function SharedLayout() {
       </MotionConfig>
     </div>
   );
-}
-
-{
-  /* <span className='my-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#230D0E] py-2 text-sm text-[#DA3036]'>
-<svg
-  fill='none'
-  viewBox='0 0 24 24'
-  strokeWidth={1.5}
-  stroke='#DA3036'
-  className='h-5 w-5'
->
-  <motion.path
-    transition={{
-      yoyo: Infinity,
-      ease: 'easeInOut',
-      duration: 0.5,
-    }}
-    initial={{ pathLength: 0 }}
-    animate={{ pathLength: 1 }}
-    strokeLinecap='round'
-    strokeLinejoin='round'
-    d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z'
-  />
-</svg>
-This action is <u>not reversible</u>
-</span> */
 }

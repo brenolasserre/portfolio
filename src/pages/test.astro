@@ -1,0 +1,30 @@
+---
+import Modal from '../components/playground/Modal.tsx';
+import Layout from '../layouts/Layout.astro';
+
+import '../styles/global.css';
+---
+
+<Layout title='Playground'>
+  <main>
+    <section class='mt-0'>
+      <Modal client:load />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  :root {
+    color-scheme: dark;
+  }
+  main {
+    margin: auto;
+    width: 700px;
+    max-width: calc(100% - 2rem);
+  }
+
+  .maxContent {
+    width: 750px;
+    max-width: calc(100% - 5rem);
+  }
+</style>

@@ -3,8 +3,8 @@ import '../../styles/global.css';
 
 export default function Reload() {
   return (
-    <>
-      <div className='outer-wrapper'>
+    <div className='flex w-full items-center justify-center p-10'>
+      <div>
         <motion.button
           whileTap={{ scale: 0.95 }}
           whileHover={{
@@ -37,7 +37,7 @@ export default function Reload() {
           </AnimatePresence>
         </motion.button>
       </div>
-      <div className='outer-wrapper'>
+      <div>
         <motion.button
           whileTap={{ scale: 0.95 }}
           whileHover={{
@@ -103,7 +103,7 @@ export default function Reload() {
           </AnimatePresence>
         </motion.button>
       </div>
-      <div className='outer-wrapper'>
+      <div>
         <motion.button
           whileTap={{ scale: 0.95 }}
           whileHover={{
@@ -137,6 +137,6 @@ export default function Reload() {
           </AnimatePresence>
         </motion.button>
       </div>
-    </>
+    </div>
   );
 }
