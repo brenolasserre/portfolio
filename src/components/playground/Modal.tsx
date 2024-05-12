@@ -27,14 +27,14 @@ export default function SharedLayout() {
   };
 
   return (
-    <div className='relative mx-auto mb-12 flex h-full w-5/6 flex-col items-center justify-center rounded-b-[50px] border-[7px] border-t-0 border-black bg-[#010409] px-6 pb-10 pt-1 md:w-1/2 '>
+    <div className='relative mx-auto mb-12 flex h-full w-[90%] flex-col items-center justify-center rounded-b-[50px] border-[7px] border-t-0 border-black bg-[#030305] px-6 pb-10 pt-1 md:w-1/2 '>
       <MotionConfig transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}>
         {modalOpen ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='pointer-events-none absolute inset-0 top-0 h-full w-full rounded-b-[44px] bg-red-700/20 backdrop-blur-[4px]'
+            className='pointer-events-none absolute inset-0 top-0 h-full w-full rounded-b-[44px] bg-[#07070a9c] backdrop-blur-[4px]'
           />
         ) : null}
 
@@ -59,9 +59,9 @@ export default function SharedLayout() {
             </li>
           </ul>
 
-          <p className='mt-8 text-sm text-zinc-300'>Delete this project</p>
+          <p className='mb-2 mt-8 text-sm text-zinc-300'>Delete this project</p>
 
-          <p className='mb-8 text-sm text-zinc-600'>
+          <p className='mb-8 text-sm text-zinc-500'>
             Once you delete a project, there is no going back. Please be
             certain.
           </p>
@@ -70,9 +70,9 @@ export default function SharedLayout() {
         <AnimatePresence mode='popLayout'>
           {modalOpen ? (
             <motion.div
-              className='custom-width absolute bottom-4 z-40 p-8 text-center '
+              className='custom-width absolute bottom-4 z-40 p-6 text-center '
               layoutId='modal-wrapper'
-              style={{ borderRadius: 36, background: '#010409' }}
+              style={{ borderRadius: 36, background: '#010205' }}
             >
               <motion.div layoutId='modal'>
                 <div className='header'>
@@ -84,14 +84,14 @@ export default function SharedLayout() {
                         initial={{
                           y: 10,
                           opacity: 0,
-                          filter: 'blur(2px)',
+                          filter: 'blur(0px)',
                         }}
                         animate={{
                           y: 0,
                           opacity: 1,
                           filter: 'blur(0px)',
                         }}
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.3 }}
                         exit={{ y: 10, opacity: 0, filter: 'blur(2px)' }}
                         className='mb-8'
                       >
@@ -156,7 +156,7 @@ export default function SharedLayout() {
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
                           exit={{ opacity: 0 }}
-                          className='text-[15px] text-zinc-400'
+                          className='text-[15px] text-zinc-500'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
@@ -210,7 +210,7 @@ export default function SharedLayout() {
                         <motion.p
                           layout
                           layoutId='header-text'
-                          className='text-[15px] text-zinc-400'
+                          className='text-[15px] text-zinc-500'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
@@ -263,11 +263,11 @@ export default function SharedLayout() {
                         }}
                         layoutId='button-layout'
                         style={{
-                          fontSize: 16,
                           borderRadius: 14,
+                          fontSize: 16,
                           width: buttonState === 'loading' ? '100%' : '50%',
                         }}
-                        className='relative flex items-center justify-center gap-1 bg-[#230D0E] py-2 text-[#DA3036]'
+                        className='relative flex items-center justify-center gap-1 bg-[#ff31311e] py-2  text-[#DA3036]'
                         disabled={buttonState === 'loading'}
                         onClick={() => {
                           setButtonState('loading');
@@ -282,6 +282,7 @@ export default function SharedLayout() {
                             style={{
                               borderRadius: 14,
                               width: 0,
+                              fontSize: 16,
                             }}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1, width: '100%' }}
@@ -337,8 +338,8 @@ export default function SharedLayout() {
                     setButtonState('idle2');
                   }}
                   layoutId='button-layout'
-                  style={{ fontSize: 16, borderRadius: 14, width: '100%' }}
-                  className=' bg-[#230D0E] px-20 py-2 text-[#DA3036]'
+                  style={{ borderRadius: 14, width: '100%' }}
+                  className='bg-[#ff31311e] px-20 py-2 text-[14px] text-[#DA3036] md:text-[16px]'
                 >
                   <motion.span layoutId='delete-button' layout='position'>
                     {buttonContent[buttonState]}
