@@ -32,8 +32,12 @@ export default function SharedLayout() {
     loading: 'Deleting...',
   };
 
+  // border-[#E5E7E9] border-[7px]
+
   return (
-    <div className='relative mx-auto mb-12 flex h-full w-[85%] flex-col items-center justify-center rounded-b-[50px] border-[7px] border-t-0 border-black bg-[#030305] px-6 pb-10 pt-1 md:w-1/2 '>
+    <div className='relative mx-auto mb-12 flex h-full w-[85%] flex-col items-center justify-center rounded-b-[50px]  border-t-0 bg-[#FEFEFE] px-6 pb-10 pt-1 md:w-1/2 '>
+      <span className='absolute top-0 h-28 w-full bg-gradient-to-b from-[#08090A] to-transparent ' />
+
       <MotionConfig transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}>
         {modalOpen ? (
           <motion.div
@@ -46,30 +50,30 @@ export default function SharedLayout() {
 
         <div>
           <ul className='flex flex-col gap-2'>
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
-              <img className='rounded-none' src='/modal/2.svg' />
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#171717] transition-all hover:cursor-pointer hover:bg-[#F4F6F8]'>
+              <img className='rounded-none' src='/modal/projects.svg' />
               My Projects
             </li>
-            <li className='flex items-center gap-2 rounded-md bg-[#06090e] px-3 py-2 text-sm text-[#EDEEF0]'>
-              <img className='rounded-none' src='/modal/7.svg' />
+            <li className='flex items-center gap-2 rounded-md bg-[#F4F6F8] px-3 py-2 text-sm text-[#171717]'>
+              <img className='rounded-none' src='/modal/settings.svg' />
               Settings
             </li>
 
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
-              <img className='rounded-none' src='/modal/5.svg' />
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#171717] transition-all hover:cursor-pointer hover:bg-[#F4F6F8]'>
+              <img className='rounded-none' src='/modal/collab.svg' />
               Collaborators
             </li>
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
-              <img className='rounded-none' src='/modal/6.svg' />
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#171717] transition-all hover:cursor-pointer hover:bg-[#F4F6F8]'>
+              <img className='rounded-none' src='/modal/security.svg' />
               Security
             </li>
           </ul>
 
-          <p className='mb-2 mt-8 text-sm text-[#EDEEF0]'>
+          <p className='mb-1 mt-8 text-[15px] font-semibold text-[#171717]'>
             Delete this project
           </p>
 
-          <p className='mb-8 text-sm text-[#757779]'>
+          <p className='mb-8 text-sm text-[#8B8B8B]'>
             Once you delete a project, there is no going back. Please be
             certain.
           </p>
