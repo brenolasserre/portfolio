@@ -352,3 +352,15 @@ pre {
 .custom-width {
   width: calc(100% - 2rem);
 }
+
+code {
+  margin: 0;
+  border-radius: 6px;
+  border: 1px solid #282826;
+  background-color: #111111;
+  padding: 2px 4px;
+  font-family: monospace;
+  color: #8b8b8b;
+  font-size: 0.8rem;
+  line-height: 1rem;
+}

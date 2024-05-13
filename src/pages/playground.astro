@@ -1,18 +1,34 @@
 ---
-import Otp from '../components/playground/Otp';
+// import Otp from '../components/playground/Otp';
 import Modal from '../components/playground/Modal';
 import Reload from '../components/playground/Reload';
-import AppStore from '../components/playground/AppStore';
+// import AppStore from '../components/playground/AppStore';
 import Contenedor from '../components/playground/Contenedor';
 import Widget from '../components/playground/Widget';
+// import Delete from '../components/playground/Delete';
 import Layout from '../layouts/Layout.astro';
-import Buttons from '../components/playground/Buttons.tsx';
+// import Buttons from '../components/playground/Buttons.tsx';
 import '../styles/global.css';
 ---
 
 <Layout title='Playground'>
   <main>
-    <h2 class='my-16 text-3xl font-semibold'>Components</h2>
+    <a href='/' class='my-12 flex items-center gap-2 text-[#757779] transition'>
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke-width='1.5'
+        stroke='currentColor'
+        class='h-4 w-4'
+      >
+        <path
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          d='M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3'></path>
+      </svg>
+      Go home
+    </a>
 
     <section class='mt-0'>
       <Contenedor
@@ -29,18 +45,20 @@ import '../styles/global.css';
       >
         <Modal client:load />
       </Contenedor>
-      <Contenedor descripcion=`What To Watch` tags='animation' client:load>
+
+      <!-- <Contenedor descripcion=`What To Watch` tags='animation' client:load>
         <AppStore client:load />
-      </Contenedor>
+      </Contenedor> -->
+
       <Contenedor
-        descripcion=`MicroInteractions`
-        tags='microinteraction'
+        descripcion=`Micro Interactions`
+        tags='micro-interaction'
         client:load
       >
         <Reload client:load />
       </Contenedor>
 
-      <Contenedor client:load tags='component' descripcion='OTP Input para 2FA'>
+      <!-- <Contenedor client:load tags='component' descripcion='OTP Input para 2FA'>
         <Otp length={6} client:load />
       </Contenedor>
 
@@ -50,7 +68,7 @@ import '../styles/global.css';
         client:load
       >
         <Buttons />
-      </Contenedor>
+      </Contenedor> -->
     </section>
   </main>
 </Layout>
