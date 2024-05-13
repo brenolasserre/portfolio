@@ -12,7 +12,7 @@ const Receipt = () => {
         <motion.div className='my-12 flex w-full flex-col items-center justify-center gap-4'>
           <motion.div
             animate={{ height: bounds.height }}
-            className='flex w-[85%] flex-col gap-3 rounded-3xl bg-[#030305] md:w-1/2'
+            className='flex w-[85%] flex-col gap-3 rounded-3xl bg-[#101114] md:w-1/2'
           >
             <div ref={ref} className='px-8 py-10'>
               <img
