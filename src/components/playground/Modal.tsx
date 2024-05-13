@@ -38,7 +38,7 @@ export default function SharedLayout() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='pointer-events-none absolute inset-0 top-0 h-full w-full rounded-b-[44px] bg-[#0e0e0f9c] backdrop-blur-[4px]'
+            className='pointer-events-none absolute inset-0 top-0 h-full w-full rounded-b-[44px] bg-[#2e0a0da6] backdrop-blur-[4px]'
           />
         ) : null}
 
