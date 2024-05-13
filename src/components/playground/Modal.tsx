@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
+import {
+  motion,
+  AnimatePresence,
+  MotionConfig,
+  easeInOut,
+  easeOut,
+} from 'framer-motion';
 
 export default function SharedLayout() {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -287,9 +293,12 @@ export default function SharedLayout() {
                               fontSize: 16,
                             }}
                             initial={{ opacity: 0 }}
+                            transition={{
+                              duration: 2.7,
+                              ease: easeOut,
+                            }}
                             animate={{ opacity: 1, width: '100%' }}
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 1 }}
                             className='absolute left-0 top-0 h-full bg-[#DA3036]/10'
                           ></motion.span>
                         )}
