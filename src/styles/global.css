@@ -19,11 +19,12 @@
 }
 
 html {
-  background-color: #030305;
+  background-color: #101011;
   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-size: 16px;
+  color: #edeef0;
 }
 body {
   margin: 0;
@@ -218,10 +219,6 @@ pre {
   background-color: #1d271e;
   outline: 0.5px solid #233f26;
   color: #90ef9b;
-}
-
-div:not(.motiondiv) {
-  color: #dbeede;
 }
 
 .nav {

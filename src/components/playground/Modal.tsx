@@ -27,7 +27,7 @@ export default function SharedLayout() {
   };
 
   return (
-    <div className='relative mx-auto mb-12 flex h-full w-[90%] flex-col items-center justify-center rounded-b-[50px] border-[7px] border-t-0 border-black bg-[#030305] px-6 pb-10 pt-1 md:w-1/2 '>
+    <div className='relative mx-auto mb-12 flex h-full w-[85%] flex-col items-center justify-center rounded-b-[50px] border-[7px] border-t-0 border-black bg-[#030305] px-6 pb-10 pt-1 md:w-1/2 '>
       <MotionConfig transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}>
         {modalOpen ? (
           <motion.div
@@ -40,28 +40,30 @@ export default function SharedLayout() {
 
         <div>
           <ul className='flex flex-col gap-2'>
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#E6EDF3] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
               <img className='rounded-none' src='/modal/2.svg' />
               My Projects
             </li>
-            <li className='flex items-center gap-2 rounded-md bg-[#06090e] px-3 py-2 text-sm text-[#E6EDF3]'>
+            <li className='flex items-center gap-2 rounded-md bg-[#06090e] px-3 py-2 text-sm text-[#EDEEF0]'>
               <img className='rounded-none' src='/modal/7.svg' />
               Settings
             </li>
 
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#E6EDF3] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
               <img className='rounded-none' src='/modal/5.svg' />
               Collaborators
             </li>
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#E6EDF3] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
+            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#06090e]'>
               <img className='rounded-none' src='/modal/6.svg' />
               Security
             </li>
           </ul>
 
-          <p className='mb-2 mt-8 text-sm text-zinc-300'>Delete this project</p>
+          <p className='mb-2 mt-8 text-sm text-[#EDEEF0]'>
+            Delete this project
+          </p>
 
-          <p className='mb-8 text-sm text-zinc-500'>
+          <p className='mb-8 text-sm text-[#757779]'>
             Once you delete a project, there is no going back. Please be
             certain.
           </p>
@@ -140,7 +142,7 @@ export default function SharedLayout() {
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
                           exit={{ opacity: 0 }}
-                          className='my-2 text-xl font-semibold text-white'
+                          className='my-2 text-xl font-semibold text-[#EDEEF0]'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
@@ -156,7 +158,7 @@ export default function SharedLayout() {
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
                           exit={{ opacity: 0 }}
-                          className='text-[15px] text-zinc-500'
+                          className='text-[15px] text-[#757779]'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
@@ -198,7 +200,7 @@ export default function SharedLayout() {
                         <motion.h2
                           layoutId='header'
                           layout='position'
-                          className='my-2 text-xl font-semibold text-white'
+                          className='my-2 text-xl font-semibold text-[#EDEEF0]'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1 '
@@ -210,7 +212,7 @@ export default function SharedLayout() {
                         <motion.p
                           layout
                           layoutId='header-text'
-                          className='text-[15px] text-zinc-500'
+                          className='text-[15px] text-[#757779]'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
@@ -339,9 +341,13 @@ export default function SharedLayout() {
                   }}
                   layoutId='button-layout'
                   style={{ borderRadius: 14, width: '100%' }}
-                  className='bg-[#ff31311e] px-20 py-2 text-[14px] text-[#DA3036] md:text-[16px]'
+                  className=' bg-[#ff31311e] px-20 py-2 text-[16px] text-[#DA3036]'
                 >
-                  <motion.span layoutId='delete-button' layout='position'>
+                  <motion.span
+                    className='mx-auto block w-max'
+                    layoutId='delete-button'
+                    layout='position'
+                  >
                     {buttonContent[buttonState]}
                   </motion.span>
                 </motion.button>
