@@ -5,6 +5,7 @@ import Reload from '../components/playground/Reload';
 // import AppStore from '../components/playground/AppStore';
 import Contenedor from '../components/playground/Contenedor';
 import Widget from '../components/playground/Widget';
+import Toast from '../components/playground/Toast';
 // import Delete from '../components/playground/Delete';
 import Layout from '../layouts/Layout.astro';
 // import Buttons from '../components/playground/Buttons.tsx';
@@ -31,6 +32,8 @@ import '../styles/global.css';
     </a>
 
     <section class='mt-0'>
+      <Toast client:load />
+
       <Contenedor
         descripcion=`Purchase Confirmation`
         tags='framer-motion'

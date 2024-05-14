@@ -16,7 +16,7 @@ const Receipt = () => {
         bounce: 0.2,
       }}
     >
-      <motion.div className='mb-36 mt-16 flex w-full flex-col items-center justify-center gap-4'>
+      <motion.div className='my-16 flex w-full flex-col items-center justify-center gap-4'>
         <motion.div
           animate={{ height: bounds.height }}
           className='flex w-[85%] flex-col gap-3 rounded-3xl bg-[#101114] md:w-1/2'

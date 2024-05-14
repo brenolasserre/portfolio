@@ -8,7 +8,11 @@ export default function Reload() {
     <div className='flex w-full items-center justify-center p-10'>
       <div>
         <motion.button
-          whileTap={{ scale: 0.95 }}
+          whileTap={{
+            scale: 0.95,
+            backgroundColor: '#111213',
+            transition: { type: 'ease', duration: 0.2 },
+          }}
           whileHover={{
             backgroundColor: '#17181d',
             transition: { type: 'ease', duration: 0.2 },
@@ -41,9 +45,13 @@ export default function Reload() {
       </div>
       <div>
         <motion.button
-          whileTap={{ scale: 0.95 }}
+          whileTap={{
+            scale: 0.95,
+            backgroundColor: '#111213',
+            transition: { type: 'ease', duration: 0.2 },
+          }}
           whileHover={{
-            backgroundColor: '#17181d',
+            backgroundColor: '#111213',
             transition: { type: 'ease', duration: 0.2 },
           }}
           transition={{ type: 'spring', duration: 0.3, bounce: 0.5 }}
@@ -74,7 +82,11 @@ export default function Reload() {
       </div>
       <div>
         <motion.button
-          whileTap={{ scale: 0.95 }}
+          whileTap={{
+            scale: 0.95,
+            backgroundColor: '#111213',
+            transition: { type: 'ease', duration: 0.2 },
+          }}
           whileHover={{
             backgroundColor: '#17181d',
             transition: { type: 'ease', duration: 0.2 },
@@ -107,7 +119,11 @@ export default function Reload() {
       </div>
       <div>
         <motion.button
-          whileTap={{ scale: 0.95 }}
+          whileTap={{
+            scale: 0.95,
+            backgroundColor: '#111213',
+            transition: { type: 'ease', duration: 0.2 },
+          }}
           whileHover={{
             backgroundColor: '#17181d',
             transition: { type: 'ease', duration: 0.2 },

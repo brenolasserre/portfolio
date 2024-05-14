@@ -23,11 +23,11 @@ const Contenedor = ({ children, descripcion, tags }: ContenedorProps) => {
               <motion.button
                 whileTap={{
                   scale: 0.95,
-                  backgroundColor: '#17181d',
+                  backgroundColor: '#111213',
                   transition: { type: 'ease', duration: 0.2 },
                 }}
                 whileHover={{
-                  backgroundColor: '#17181d',
+                  backgroundColor: '#111213',
                   transition: { type: 'ease', duration: 0.2 },
                 }}
                 transition={{ type: 'spring', duration: 0.3, bounce: 0.5 }}
@@ -39,7 +39,6 @@ const Contenedor = ({ children, descripcion, tags }: ContenedorProps) => {
                   className='flex w-full items-center justify-center p-1'
                 >
                   <svg
-                    xmlns='http://www.w3.org/2000/svg'
                     width='24'
                     height='24'
                     fill='currentColor'
