@@ -2,7 +2,6 @@
 // import Otp from '../components/playground/Otp';
 import Modal from '../components/playground/Modal';
 import Reload from '../components/playground/Reload';
-// import AppStore from '../components/playground/AppStore';
 import Contenedor from '../components/playground/Contenedor';
 import Widget from '../components/playground/Widget';
 import Toast from '../components/playground/Toast';
@@ -14,7 +13,7 @@ import '../styles/global.css';
 
 <Layout title='Playground'>
   <main>
-    <a href='/' class='my-12 flex items-center gap-2 text-[#757779] transition'>
+    <!-- <a href='/' class='my-12 flex items-center gap-2 text-[#757779] transition'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fill='none'
@@ -29,7 +28,7 @@ import '../styles/global.css';
           d='M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3'></path>
       </svg>
       Go home
-    </a>
+    </a> -->
 
     <section class='mt-0'>
       <Toast client:load />
@@ -48,11 +47,6 @@ import '../styles/global.css';
       >
         <Modal client:load />
       </Contenedor>
-
-      <!-- <Contenedor descripcion=`What To Watch` tags='animation' client:load>
-        <AppStore client:load />
-      </Contenedor> -->
-
       <Contenedor
         descripcion=`Micro Interactions`
         tags='micro-interaction'

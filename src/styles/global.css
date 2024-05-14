@@ -37,7 +37,7 @@ body {
 main {
   width: 40%;
   margin: auto;
-  padding: 55px 0 0px 0 !important;
+  padding: 0px 0px 55px 0px !important;
   animation: fadeIn 0.5s;
 }
 h1,

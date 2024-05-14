@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence, easeOut, MotionConfig } from 'framer-motion';
+import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 
 const Receipt = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -8,7 +8,7 @@ const Receipt = () => {
     setIsOpen(true);
     setTimeout(() => {
       setIsOpen(false);
-    }, 3000);
+    }, 4000);
   }
 
   return (
@@ -59,7 +59,7 @@ const Receipt = () => {
               <MotionConfig
                 transition={{
                   type: 'spring',
-                  duration: 0.4,
+                  duration: 0.6,
                 }}
               >
                 <AnimatePresence mode='popLayout'>
@@ -67,43 +67,43 @@ const Receipt = () => {
                     <div className='flex h-10 justify-center'>
                       <motion.button
                         initial={{
-                          y: -30,
+                          y: -40,
                           width: '10%',
                           opacity: 0,
                           scale: 0.9,
+                          filter: 'blur(6px)',
                         }}
                         animate={{
                           y: 0,
                           opacity: 1,
                           width: '100%',
                           scale: 1,
+                          filter: 'blur(0px)',
                         }}
                         exit={{
-                          y: -30,
+                          y: -40,
                           opacity: 0,
-                          scale: 0.9,
+                          scale: 0.8,
                           width: '10%',
-                          transition: { duration: 0.3 },
+                          filter: 'blur(6px)',
                         }}
                         style={{
                           fontSize: 16,
                         }}
-                        className='relative w-fit rounded-full bg-[#EDEDED] px-6 py-2 text-black'
+                        className='relative flex w-fit justify-center rounded-full bg-[#EDEDED] px-6 py-2 text-center text-black'
                       >
                         <span className='absolute left-0 top-0 z-40 h-full w-14 rounded-l-full bg-gradient-to-r from-[#EDEDED] to-transparent ' />
                         <AnimatePresence>
                           <motion.span
-                            className='w-full'
+                            className='mx-auto truncate text-center'
                             initial={{
                               opacity: 0,
-                              scale: 0,
+                              filter: 'blur(2px)',
                             }}
-                            style={{ color: 'black' }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            animate={{ opacity: 1, filter: 'blur(0px)' }}
                             exit={{
                               opacity: 0,
-                              scale: 0,
-                              transition: { duration: 0.2 },
+                              filter: 'blur(2px)',
                             }}
                           >
                             Adress Copied!
