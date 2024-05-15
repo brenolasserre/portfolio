@@ -8,6 +8,7 @@ export default function Reload() {
     <div className='flex w-full items-center justify-center p-10'>
       <div>
         <motion.button
+          aria-hidden='true'
           whileTap={{
             scale: 0.95,
             backgroundColor: '#111213',
@@ -45,6 +46,7 @@ export default function Reload() {
       </div>
       <div>
         <motion.button
+          aria-hidden='true'
           whileTap={{
             scale: 0.95,
             backgroundColor: '#111213',
@@ -82,6 +84,7 @@ export default function Reload() {
       </div>
       <div>
         <motion.button
+          aria-hidden='true'
           whileTap={{
             scale: 0.95,
             backgroundColor: '#111213',
@@ -119,6 +122,7 @@ export default function Reload() {
       </div>
       <div>
         <motion.button
+          aria-hidden='true'
           whileTap={{
             scale: 0.95,
             backgroundColor: '#111213',

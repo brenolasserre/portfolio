@@ -21,6 +21,7 @@ const Receipt = () => {
           <div className='absolute top-0 z-40 flex w-full items-center justify-end p-4'>
             <AnimatePresence mode='popLayout'>
               <motion.button
+                aria-label='See more'
                 whileTap={{
                   scale: 0.95,
                   backgroundColor: '#111213',

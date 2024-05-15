@@ -1,12 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import useMeasure from 'react-use-measure';
 
 const Receipt = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [ref, bounds] = useMeasure();
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const copyToClipboard = () => {
+    const valueToCopy = '02323042420';
+    navigator.clipboard.writeText(valueToCopy).then(() => {
+      setCopySuccess(true);
+      setTimeout(() => setCopySuccess(false), 2000);
+    });
+  };
 
   return (
     <MotionConfig
@@ -23,8 +32,10 @@ const Receipt = () => {
         >
           <div ref={ref} className='py-10'>
             <img
-              className='mx-auto mb-4 w-12 rounded-2xl'
-              src='https://i.pinimg.com/originals/ee/45/b8/ee45b8c8c160f85af8655a104029b466.jpg'
+              className='mx-auto mb-4 rounded-2xl'
+              width='50px'
+              height='50px'
+              src='/purchase/img.webp'
               alt='Store Picture'
             />
             <div className='mb-6'>
@@ -37,9 +48,70 @@ const Receipt = () => {
               </p>
             </div>
 
-            <p className='mb-2 text-center text-sm'>
-              <span className='text-[#757779]'>Order No.</span>{' '}
-              <code>02323042420</code>
+            <p className='mb-2 flex items-center justify-center gap-4 text-center text-sm'>
+              <span className='text-[#757779]'>Order No. </span>
+
+              <div
+                className='group flex items-center'
+                onClick={copyToClipboard}
+              >
+                <motion.code
+                  whileHover={{ x: -3 }}
+                  className='relative cursor-pointer'
+                  whileTap={{ scale: 0.95 }}
+                >
+                  02323042420
+                  <span className='absolute left-[120%] m-4 mx-auto -translate-x-1/2 -translate-y-[1.38em] rounded-md border border-[#282826] bg-[#111111] p-[3px] text-sm text-[#8b8b8b] opacity-0 transition-opacity group-hover:opacity-100'>
+                    <AnimatePresence mode='wait'>
+                      {copySuccess ? (
+                        <motion.span
+                          key='success'
+                          initial={{ scale: 0.5, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0.5, opacity: 0 }}
+                          transition={{ duration: 0.1 }}
+                        >
+                          <svg
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            strokeWidth={1.5}
+                            stroke='currentColor'
+                            className='h-[14px] w-[14px]'
+                          >
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              d='m4.5 12.75 6 6 9-13.5'
+                            />
+                          </svg>
+                        </motion.span>
+                      ) : (
+                        <motion.span
+                          key='default'
+                          initial={{ scale: 0.5, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0.5, opacity: 0 }}
+                          transition={{ duration: 0.1 }}
+                        >
+                          <svg
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            strokeWidth={1.5}
+                            stroke='currentColor'
+                            className='h-[14px] w-[14px]'
+                          >
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              d='M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75'
+                            />
+                          </svg>
+                        </motion.span>
+                      )}
+                    </AnimatePresence>
+                  </span>
+                </motion.code>
+              </div>
             </p>
 
             <div className='relative mb-4 h-4 w-full'>
@@ -126,7 +198,7 @@ const Receipt = () => {
               </AnimatePresence>
               <motion.p
                 layout='position'
-                className='mb-0 mt-6 flex w-full items-center justify-between text-sm'
+                className='mb-0 mt-10 flex w-full items-center justify-between text-sm'
               >
                 <span className='h-px w-1/5 bg-gradient-to-r from-[#282826]/80 to-transparent md:w-1/4' />
 

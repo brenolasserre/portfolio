@@ -45,20 +45,36 @@ export default function SharedLayout() {
         <div>
           <ul className='flex flex-col gap-2'>
             <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#0a0a0a]'>
-              <img className='rounded-none' src='/modal/projects.svg' />
+              <img
+                className='rounded-none'
+                src='/modal/projects.svg'
+                alt='Projects Icon'
+              />
               My Projects
             </li>
             <li className='flex items-center gap-2 rounded-md px-3 py-2 text-sm text-[#EDEEF0]'>
-              <img className='rounded-none' src='/modal/settings.svg' />
+              <img
+                className='rounded-none'
+                src='/modal/settings.svg'
+                alt='Settings Icon'
+              />
               Settings
             </li>
 
             <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#0a0a0a]'>
-              <img className='rounded-none' src='/modal/collab.svg' />
+              <img
+                className='rounded-none'
+                src='/modal/collab.svg'
+                alt='Collab Icon'
+              />
               Collaborators
             </li>
             <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#0a0a0a]'>
-              <img className='rounded-none' src='/modal/security.svg' />
+              <img
+                className='rounded-none'
+                src='/modal/security.svg'
+                alt='Security Icon'
+              />
               Security
             </li>
           </ul>

@@ -4,7 +4,6 @@ interface Props {
 }
 const { title } = Astro.props;
 import '../styles/global.css';
-import { motion, AnimatePresence } from 'framer-motion';
 ---
 
 <!-- 
@@ -32,10 +31,11 @@ import { motion, AnimatePresence } from 'framer-motion';
   <body>
     <div class='flex h-20 items-center justify-center'>
       <div
-        class='fixed z-[99] flex items-center justify-center gap-2 rounded-full border border-[#212122] bg-[#0e0f11] p-1 px-4 shadow-xl'
+        class='fixed z-[99] flex items-center justify-center gap-2 rounded-full border border-[#212122] bg-[#0e0f11] p-1 px-4 text-[#8B8B8B] shadow-xl'
       >
         <a
           href='https://twitter.com/brenolasserre'
+          aria-label='Follow me on Twitter'
           target='_blank'
           class='p-1 transition hover:text-white'
         >
@@ -54,6 +54,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
         <a
           href='mailto:lasserrebreno@gmail.com'
+          aria-label='Send me an email'
           target='_blank'
           class='p-1 transition hover:text-white'
         >
