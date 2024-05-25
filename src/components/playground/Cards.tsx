@@ -75,6 +75,7 @@ const Cards = () => {
                   style={{
                     zIndex,
                     top,
+                    scale,
                   }}
                   initial={{ scale, top }}
                   animate={{ scale, top }}
