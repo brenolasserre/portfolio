@@ -15,7 +15,7 @@ export default function Reload() {
             transition: { type: 'ease', duration: 0.2 },
           }}
           whileHover={{
-            backgroundColor: '#17181d',
+            backgroundColor: '#111213',
             transition: { type: 'ease', duration: 0.2 },
           }}
           transition={{ type: 'spring', duration: 0.3, bounce: 0.5 }}
@@ -91,7 +91,7 @@ export default function Reload() {
             transition: { type: 'ease', duration: 0.2 },
           }}
           whileHover={{
-            backgroundColor: '#17181d',
+            backgroundColor: '#111213',
             transition: { type: 'ease', duration: 0.2 },
           }}
           transition={{ type: 'spring', duration: 0.3, bounce: 0.5 }}
@@ -129,7 +129,7 @@ export default function Reload() {
             transition: { type: 'ease', duration: 0.2 },
           }}
           whileHover={{
-            backgroundColor: '#17181d',
+            backgroundColor: '#111213',
             transition: { type: 'ease', duration: 0.2 },
           }}
           transition={{ type: 'spring', duration: 0.3, bounce: 0.4 }}

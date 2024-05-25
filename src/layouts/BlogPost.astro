@@ -1,32 +1,116 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import '../styles/global.css';
-// type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description } = Astro.props;
+
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Navbar from '@/components/Navbar.astro';
+import '../styles/global.css';
 ---
 
-<html lang='en' class='bg-[#050705]'>
+<html lang='en'>
   <head>
-    <title>Blog</title>
+    <meta charset='UTF-8' />
+    <meta property='og:title' content='Breno Lasserre' />
+    <meta
+      property='og:description'
+      content='This is the portfolio where I share my work!'
+    />
+    <meta property='og:image' content='URL of the image you want to display' />
+    <meta name='viewport' content='width=device-width' />
+    <link
+      rel='icon'
+      type='image/png'
+      sizes='32x32'
+      href='/favicons/favicon-32.png'
+    />
+    <link
+      rel='icon'
+      type='image/png'
+      sizes='16x16'
+      href='/favicons/favicon-16.png'
+    />
+    <link
+      rel='apple-touch-icon'
+      sizes='180x180'
+      href='/favicons/touch-icon.png'
+    />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
     <BaseHead title={title} description={description} />
+    <style is:global>
+      :root {
+        color-scheme: dark;
+      }
+      main {
+        width: 700px;
+        max-width: calc(100% - 2rem);
+      }
+      pre {
+        margin: 0;
+        border-radius: 12px;
+        border: 1px solid #212122 !important;
+        background-color: #08090a !important;
+        padding: 2rem 2rem;
+        font-family: monospace;
+        color: #8b8b8b;
+        font-size: 0.8rem;
+        line-height: 1rem;
+        margin-top: 2rem;
+      }
+      p {
+        color: #a1a1a1 !important;
+      }
+      @media only screen and (max-width: 600px) {
+        p {
+          font-size: 15px;
+        }
+      }
+
+      a {
+        color: #a1a1a1 !important;
+        text-decoration: underline !important;
+      }
+      a:hover {
+        color: #eaeaea !important;
+        transition: color ease-in-out 0.2s;
+      }
+    </style>
   </head>
-  <main>
-    <slot />
-  </main>
-  <div
-    class='gradientTop fixed bottom-0 left-0 z-50 h-[75px] w-full bg-gradient-to-t from-[#050705] via-transparent to-transparent'
-  >
-  </div>
-  <style>
-    :root {
-      color-scheme: dark;
-    }
-    main {
-      margin: auto;
-      width: 800px;
-      max-width: calc(100% - 2rem);
-    }
-  </style>
+
+  <body>
+    <Navbar />
+    <main>
+      <div
+        class='gradientTop fixed left-0 top-0 z-50 h-[50px] w-full bg-gradient-to-b from-[#111213] to-transparent'
+      >
+      </div>
+      <a
+        href='/playground'
+        class='mb-12 flex items-center gap-2 text-[15px] text-[#757779] transition hover:text-white md:text-base'
+      >
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke-width='1.5'
+          stroke='currentColor'
+          class='h-4 w-4'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            d='M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3'></path>
+        </svg>
+        Go back
+      </a>
+
+      <article>
+        <div class='prose'>
+          <slot />
+        </div>
+      </article>
+    </main>
+  </body>
 </html>

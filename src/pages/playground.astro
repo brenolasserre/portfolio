@@ -1,47 +1,57 @@
 ---
-// import Otp from '../components/playground/Otp';
 import Modal from '../components/playground/Modal';
 import Reload from '../components/playground/Reload';
 import Contenedor from '../components/playground/Contenedor';
-import Widget from '../components/playground/Widget';
+import Purchase from '../components/playground/Purchase';
 import Toast from '../components/playground/Toast';
-// import Delete from '../components/playground/Delete';
+// import Buttons from '../components/playground/Buttons';
+import Cards from '../components/playground/Cards';
 import Layout from '../layouts/Layout.astro';
-// import Buttons from '../components/playground/Buttons.tsx';
 import '../styles/global.css';
 ---
 
 <Layout title='Playground'>
   <main>
-    <!-- <a href='/' class='my-12 flex items-center gap-2 text-[#757779] transition'>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        stroke-width='1.5'
-        stroke='currentColor'
-        class='h-4 w-4'
-      >
-        <path
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          d='M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3'></path>
-      </svg>
-      Go home
-    </a> -->
-
     <section class='mt-0'>
       <Contenedor
+        url='/purchase'
+        showDescription={true}
+        arrow={true}
         descripcion=`Purchase Confirmation`
         tags='framer-motion'
         client:load
       >
-        <Widget client:load />
+        <Cards client:load />
+      </Contenedor>
+
+      <!-- <Contenedor
+        url='/purchase'
+        showDescription={true}
+        arrow={true}
+        descripcion=`Purchase Confirmation`
+        tags='framer-motion'
+        client:load
+      >
+        <Buttons client:load />
+      </Contenedor> -->
+
+      <Contenedor
+        url='/purchase'
+        showDescription={true}
+        arrow={true}
+        descripcion=`Purchase Confirmation`
+        tags='framer-motion'
+        client:load
+      >
+        <Purchase client:load />
       </Contenedor>
 
       <Toast client:load />
 
       <Contenedor
+        url='/delete'
+        showDescription={true}
+        arrow={true}
         descripcion=`Delete Project Modal`
         tags='framer-motion'
         client:load
@@ -49,24 +59,15 @@ import '../styles/global.css';
         <Modal client:load />
       </Contenedor>
       <Contenedor
+        url=''
+        showDescription={true}
+        arrow={true}
         descripcion=`Micro Interactions`
         tags='micro-interaction'
         client:load
       >
         <Reload client:load />
       </Contenedor>
-
-      <!-- <Contenedor client:load tags='component' descripcion='OTP Input para 2FA'>
-        <Otp length={6} client:load />
-      </Contenedor>
-
-      <Contenedor
-        tags='buttons'
-        descripcion='Coleccion de botones retro'
-        client:load
-      >
-        <Buttons />
-      </Contenedor> -->
     </section>
   </main>
 </Layout>
@@ -86,3 +87,5 @@ import '../styles/global.css';
     max-width: calc(100% - 5rem);
   }
 </style>
+<!-- <astro:export name='Contenedor' as={Contenedor}></astro:export>
+<astro:export name='Buttons' as={Buttons}></astro:export> -->

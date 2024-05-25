@@ -1,0 +1,117 @@
+---
+title: 'Purchase Confirmation'
+description: 'Lorem ipsum dolor sit amet'
+---
+
+import Widget from '../../components/playground/Purchase.tsx';
+import Contenedor from '../../components/playground/Contenedor.tsx';
+
+##### **Building the Purchase Confirmation component**
+
+<br />
+
+It all started with this interaction.
+I like having confirmation modals for irreversible actions like deleting a project. But most existing options feel clunky, so I decided to experiment with creating my own using Framer Motion.
+
+<br />
+
+<Contenedor
+  arrow={false}
+  descripcion='Purchase Confirmation'
+  tags='framer-motion'
+  showDescription={false}
+  client:load
+>
+  <Widget client:load />
+</Contenedor>
+
+In this component, there are only two animated elements, the Order Number copy function, and the breakdown. For the copy function you just need the following (I've just added the basic classes):
+
+```tsx
+<span className='text-[#757779]'>Order No. </span>
+  <div className='group flex items-center'
+    onClick={copyToClipboard}
+    >
+     <motion.code
+       whileHover={{ x: -3 }}
+       whileTap={{ scale: 0.95 }}
+     >
+      02323042420
+      <span className='absolute left-[120%] m-4 -translate-x-1/2 -translate-y-[1.38em] opacity-0 transition-opacity group-hover:opacity-100'>
+        <AnimatePresence mode='wait'>
+            {copySuccess ? (
+              <motion.span
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.5, opacity: 0 }}
+                transition={{ duration: 0.1 }}
+              >
+                <TickSVG >
+              </motion.span>
+            ) : (
+              <motion.span
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.5, opacity: 0 }}
+                transition={{ duration: 0.1 }}
+              >
+                <CopySVG >
+              </motion.span>
+            )}
+        </AnimatePresence>
+      </span>
+    </motion.code>
+  </div>
+</span>
+```
+
+<br />
+<br />
+
+When the user hovers on the `code` element, it moves left and thanks to the `group-hover:opacity-100` class you can also show the span with the icons.
+
+When the user clicks it, a function to copy the text gets executed and the icons switch for .6 secs.
+
+<br />
+
+The animation for the breakdown are just spans that get rendered when `isOpen` is true. Tip: Almost all animations should enter and exit from the same place (here the top):
+
+```tsx
+<AnimatePresence mode='popLayout'>
+  {isOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -30, filter: 'blur(2px)' }}
+      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      exit={{ opacity: 0, y: -20, filter: 'blur(2px)' }}
+      transition={{ duration: 0.3 }}
+    >
+      <p>
+        <span className='flex items-center gap-2'>
+          <BoxSVG>
+          Product
+        </span>
+        <span>143,68$</span>
+      </p>
+      <p>
+        <span className='flex items-center gap-2'>
+          <ShippingSVG>
+          Shipping
+        </span>
+        <span>12,00$</span>
+      </p>
+      <p>
+        <span className='flex items-center gap-2'>
+          <TaxSVG>
+          Taxes
+          <span className='text-xs'>(20%)</span>
+        </span>
+        <span>31,13$</span>
+      </p>
+    </motion.div>
+  )}
+</AnimatePresence>
+```
+
+<br />
+
+For the full code, and styles you can check it [here](https://github.com/brenolasserre/portfolio/tree/main/src/components/playground)

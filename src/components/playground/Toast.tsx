@@ -20,7 +20,8 @@ const Receipt = () => {
         <div className='relative h-full w-full'>
           <div className='absolute top-0 z-40 flex w-full items-center justify-end p-4'>
             <AnimatePresence mode='popLayout'>
-              <motion.button
+              <motion.a
+                href='/blog/toast'
                 aria-label='See more'
                 whileTap={{
                   scale: 0.95,
@@ -52,17 +53,12 @@ const Receipt = () => {
                     />
                   </svg>
                 </motion.span>
-              </motion.button>
+              </motion.a>
             </AnimatePresence>
           </div>
           <div className='relative mx-auto flex min-h-[24em] items-center justify-center'>
-            <div className='w-1/2 md:w-1/3'>
-              <MotionConfig
-                transition={{
-                  type: 'spring',
-                  duration: 0.6,
-                }}
-              >
+            <div className='w-fit'>
+              <MotionConfig transition={{ type: 'spring', duration: 0.7 }}>
                 <AnimatePresence mode='popLayout'>
                   {isOpen && (
                     <div className='flex h-10 justify-center'>
@@ -88,29 +84,34 @@ const Receipt = () => {
                           width: '10%',
                           filter: 'blur(6px)',
                         }}
-                        style={{
-                          fontSize: 16,
-                        }}
+                        style={{ fontSize: 16 }}
                         className='relative flex w-fit justify-center rounded-full bg-[#EDEDED] px-6 py-2 text-center text-black'
                       >
-                        <span className='absolute left-0 top-0 z-40 h-full w-14 rounded-l-full bg-gradient-to-r from-[#EDEDED] to-transparent ' />
+                        <span className='absolute left-0 top-0 z-40 h-full w-10 rounded-l-full bg-gradient-to-r from-[#EDEDED] to-transparent ' />
                         <AnimatePresence>
                           <motion.span
-                            className='mx-auto truncate text-center'
-                            initial={{
-                              opacity: 0,
-                              filter: 'blur(2px)',
-                            }}
+                            className='mx-auto flex items-center gap-1 truncate text-center'
+                            initial={{ opacity: 0, filter: 'blur(2px)' }}
                             animate={{ opacity: 1, filter: 'blur(0px)' }}
-                            exit={{
-                              opacity: 0,
-                              filter: 'blur(2px)',
-                            }}
+                            exit={{ opacity: 0, filter: 'blur(2px)' }}
                           >
-                            Adress Copied!
+                            <svg
+                              fill='none'
+                              viewBox='0 0 24 24'
+                              strokeWidth={1.5}
+                              stroke='currentColor'
+                              className='size-5'
+                            >
+                              <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                d='M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+                              />
+                            </svg>
+                            Text Copied!
                           </motion.span>
                         </AnimatePresence>
-                        <span className='absolute right-0 top-0 z-40 h-full w-14 rounded-r-full bg-gradient-to-l from-[#EDEDED] to-transparent ' />
+                        <span className='absolute right-0 top-0 z-40 h-full w-10 rounded-r-full bg-gradient-to-l from-[#EDEDED] to-transparent ' />
                       </motion.button>
                     </div>
                   )}

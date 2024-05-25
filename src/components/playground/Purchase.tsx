@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import useMeasure from 'react-use-measure';
 
@@ -65,7 +65,6 @@ const Receipt = () => {
                     <AnimatePresence mode='wait'>
                       {copySuccess ? (
                         <motion.span
-                          key='success'
                           initial={{ scale: 0.5, opacity: 0 }}
                           animate={{ scale: 1, opacity: 1 }}
                           exit={{ scale: 0.5, opacity: 0 }}
@@ -122,7 +121,7 @@ const Receipt = () => {
             <div className='px-8 '>
               <p className='flex w-full items-center justify-between '>
                 <span>Total:</span>
-                <span>182,02$</span>
+                <span>186,81$</span>
               </p>
               <AnimatePresence mode='popLayout'>
                 {isOpen && (
@@ -150,7 +149,7 @@ const Receipt = () => {
                         Product
                       </span>
                       <span className='mx-3 w-full border-b border-dashed border-[#282826]/30' />
-                      <span>182,02$</span>
+                      <span>143,68$</span>
                     </p>
                     <p className='mb-3 flex w-full items-center justify-between text-base text-[#757779] md:text-[14px]'>
                       <span className='flex items-center gap-2'>
@@ -170,7 +169,7 @@ const Receipt = () => {
                         Shipping
                       </span>
                       <span className='mx-3 w-full border-b border-dashed border-[#282826]/30' />
-                      <span>17,11$</span>
+                      <span>12,00$</span>
                     </p>
                     <p className='mb-3 flex w-full items-center justify-between text-base text-[#757779] md:text-[14px]'>
                       <span className='flex items-center gap-2'>
@@ -191,7 +190,7 @@ const Receipt = () => {
                         <span className='text-xs'>(20%)</span>
                       </span>
                       <span className='mx-3 w-1/3 border-b border-dashed border-[#282826]/30' />
-                      <span>7,68$</span>
+                      <span>31,13$</span>
                     </p>
                   </motion.div>
                 )}

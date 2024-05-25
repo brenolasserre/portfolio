@@ -1,0 +1,113 @@
+---
+title: 'Using MDX'
+description: 'Lorem ipsum dolor sit amet'
+---
+
+import Delete from '../../components/playground/Delete.tsx';
+import Modal from '../../components/playground/Modal.tsx';
+import Contenedor from '../../components/playground/Contenedor.tsx';
+
+##### **Building the Delete Project component**
+
+<br />
+
+It all started with this interaction.
+I like having confirmation modals for irreversible actions like deleting a project. But most existing options feel clunky, so I decided to experiment with creating my own using Framer Motion.
+
+<br />
+
+<Contenedor arrow={false} showDescription={false} client:load>
+  <Delete client:load />
+</Contenedor>
+
+This is the basic simplified logic. A delete button is rendered, and on click it turns `cancelOpen` true. By doing so, the new Cancel and Confirm Delete buttons get rendered:
+
+```tsx
+<AnimatePresence mode='popLayout'>
+  {cancelOpen ? (
+    <div>
+      <motion.button
+      >
+        Cancel
+      </motion.button>
+      <motion.button
+        onClick={() => {
+          setButtonState('loading');
+          setTimeout(() => {
+            setButtonState('idle');
+            setCancelOpen((prevState: boolean) => !prevState);
+          }, 3000);
+        }}
+      >
+        <motion.span>
+          <TrashSVG>
+          {buttonContent[buttonState]}
+        </motion.span>
+      </motion.button>
+    </div>
+  ) : (
+      <div>
+          <motion.button
+            onClick={() => {
+              setCancelOpen((prevState: boolean) => !prevState);
+              setButtonState('delete');
+            }}
+          >
+            <motion.span>
+              {buttonContent[buttonState]}
+            </motion.span>
+          </motion.button>
+      </div>
+  )}
+</AnimatePresence>
+```
+
+<br />
+<br />
+The inner text of the button is conditionally rendered based on the state of a
+previously declared object. You need to declare what state it's going to change
+to when clicking on the buttons. The good thing of this approach is that you can
+have elements dynamically rendered easily:
+
+```js
+const buttonContent = {
+  idle: 'Delete Project',
+  delete: 'Delete',
+  loading: 'Deleting...',
+};
+```
+
+<br />
+<br />
+
+In this case, for the fill animation that resembles a loading bar, it gets rendered when the buttonState is `loading`. It's as easy as placing it absolutely behind the text span and animate its width like this:
+
+```tsx
+{
+  buttonState === 'testloading' && (
+    <motion.span
+      style={{ borderRadius: 14, width: 0, fontSize: 16, backgroundColor: '#ff31311e' }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 2.7, ease: easeOut }}
+      animate={{ opacity: 1, width: '100%' }}
+      exit={{ opacity: 0 }}
+      className='absolute left-0 top-0 h-full'
+    ></motion.span>
+  );
+}
+```
+
+<br />
+<br />
+
+Finally, I added a modal confirmation with info and styled the app.
+
+The logic remains the same, I just added an overlay and a second screen:
+
+<br />
+
+<Contenedor arrow={false} showDescription={false} client:load>
+  <Modal client:load />
+</Contenedor>
+
+For the full code, you can check it [here](https://github.com/brenolasserre/portfolio/tree/main/src/components/playground)
