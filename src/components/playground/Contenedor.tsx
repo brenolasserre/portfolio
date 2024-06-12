@@ -22,7 +22,7 @@ const Contenedor = ({
   return (
     <div className={`${showDescription ? 'mt-0' : 'mt-2'} mb-16`}>
       <div
-        className={`max-w-22 flex w-full flex-col ${showDescription ? 'rounded-t-xl  border-b-0' : 'border-b-1  rounded-xl'} border border-[#212122] bg-[#08090A] bg-[size:20px_20px]`}
+        className={`max-w-22 flex w-full flex-col ${showDescription ? 'rounded-t-xl  border-b-0' : 'border-b-1  rounded-xl'} border border-[#ededed] bg-[#fff] bg-[size:20px_20px]`}
       >
         <div className='relative h-full w-full'>
           {arrow && (

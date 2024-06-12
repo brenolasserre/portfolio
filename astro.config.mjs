@@ -9,7 +9,9 @@ import react from '@astrojs/react';
 export default defineConfig({
   output: 'server',
   adapter: vercel({
-    webAnalytics: { enabled: true },
+    webAnalytics: {
+      enabled: true,
+    },
   }),
   site: 'https://example.com',
   integrations: [mdx(), sitemap(), tailwind(), react()],
