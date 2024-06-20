@@ -82,7 +82,7 @@ const Cards = () => {
             return (
               <motion.div
                 key={card.id}
-                className={`absolute h-40 w-72 rounded-xl border border-[#ededed] bg-[#fafafa] p-4 text-black shadow-[0_-20px_10px_-16px_rgba(247,247,247,.7)] `}
+                className={`absolute h-40 w-72 rounded-xl border border-[#212122] bg-[#101114] p-4 text-black shadow-[0_-20px_10px_-16px_rgba(8,9,10,.6)] `}
                 style={{
                   zIndex,
                 }}

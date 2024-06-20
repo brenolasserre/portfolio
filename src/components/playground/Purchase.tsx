@@ -36,7 +36,7 @@ const Receipt = () => {
               width='50px'
               height='50px'
               src='/purchase/img.webp'
-              alt='Store Picture'
+              alt='Store'
             />
             <div className='mb-6'>
               <h3 className='mt-2 text-center text-xl font-semibold md:text-2xl'>
