@@ -7,80 +7,69 @@ import Toast from '../components/playground/Toast';
 import Crypto from '../components/playground/Crypto';
 import Cards from '../components/playground/Cards';
 import Exchange from '../components/playground/Exchange';
+import Shake from '../components/playground/Shake';
 
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 ---
 
 <Layout title='Playground'>
-  <main>
+  <main class='!p-0'>
     <section class='mt-0'>
-      <Contenedor
-        url='/purchase'
-        showDescription={true}
-        arrow={true}
-        descripcion=`Card Stack`
-        tags='framer-motion'
-        client:load
-      >
+      <!-- <Contenedor
+      url='/purchase'
+      client:load
+    >
+      <Shake client:load />
+    </Contenedor> -->
+
+      <Contenedor url='/purchase' client:load>
         <Exchange client:load />
       </Contenedor>
 
-      <Contenedor
+      <p class='text-center text-xs text-[#8B8B8B]'>
+        Crypto Exchange module, inspired by <a
+          target='_blank'
+          href='https://matcha.xyz/'>Matcha</a
+        >'s.
+      </p>
+
+      <!-- <Contenedor
         url='/purchase'
-        showDescription={true}
-        arrow={true}
-        descripcion=`Card Stack`
-        tags='framer-motion'
         client:load
       >
         <Cards client:load />
-      </Contenedor>
+      </Contenedor> -->
 
-      <Contenedor
+      <!-- <Contenedor
         url='/purchase'
-        showDescription={true}
-        arrow={true}
-        descripcion=`Purchase Confirmation`
-        tags='framer-motion'
         client:load
       >
         <Crypto client:load />
-      </Contenedor>
+      </Contenedor> -->
 
-      <Contenedor
-        url='/purchase'
-        showDescription={true}
-        arrow={true}
-        descripcion=`Purchase Confirmation`
-        tags='framer-motion'
-        client:load
-      >
+      <Contenedor url='/purchase' client:load>
         <Purchase client:load />
       </Contenedor>
 
-      <Toast client:load />
+      <p class='text-center text-xs text-[#8B8B8B]'>Purchase Receipt.</p>
 
-      <Contenedor
+      <!-- <Toast client:load /> -->
+      <!-- <Contenedor
         url='/delete'
-        showDescription={true}
-        arrow={true}
-        descripcion=`Delete Project Modal`
-        tags='framer-motion'
         client:load
       >
         <Modal client:load />
-      </Contenedor>
-      <Contenedor
-        url=''
-        showDescription={true}
-        arrow={true}
-        descripcion=`Micro Interactions`
-        tags='micro-interaction'
-        client:load
-      >
+      </Contenedor> -->
+      <Contenedor url='' client:load>
         <Reload client:load />
       </Contenedor>
+      <p class='text-center text-xs text-[#8B8B8B]'>
+        Crypto Exchange module, inspired by <a
+          target='_blank'
+          href='https://matcha.xyz/'>Matcha</a
+        >'s.
+      </p>
     </section>
   </main>
 </Layout>
@@ -89,16 +78,20 @@ import '../styles/global.css';
   :root {
     color-scheme: dark;
   }
+  a {
+    color: #eaeaea;
+    text-decoration: underline;
+  }
   main {
     margin: auto;
-    width: 700px;
-    max-width: calc(100% - 2rem);
+    /* width: 700px; */
+    /* max-width: calc(100% - 2rem); */
   }
 
-  .maxContent {
+  /* .maxContent {
     width: 750px;
     max-width: calc(100% - 5rem);
-  }
+  } */
 </style>
 <!-- <astro:export name='Contenedor' as={Contenedor}></astro:export>
 <astro:export name='Buttons' as={Buttons}></astro:export> -->

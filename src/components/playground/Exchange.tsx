@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 
 const CancelButton = () => {
@@ -7,35 +7,42 @@ const CancelButton = () => {
 
   const [selected, setSelected] = useState(null);
   const [switched, setSwitched] = useState(false);
-
   const [switchNumber, setSwitchNumber] = useState(0);
 
+  const [displayedAmountToSend, setDisplayedAmountToSend] =
+    useState(amountToSend);
+  const [displayedAmountToReceive, setDisplayedAmountToReceive] =
+    useState(amountToReceive);
+  const [isUpdatingAmount, setIsUpdatingAmount] = useState(false);
+
+  useEffect(() => {
+    setIsUpdatingAmount(true);
+    const timer = setTimeout(() => {
+      setDisplayedAmountToSend(amountToSend);
+      setDisplayedAmountToReceive(amountToReceive);
+      setIsUpdatingAmount(false);
+    }, 1700);
+    return () => clearTimeout(timer);
+  }, [amountToSend, amountToReceive]);
+
   const handleButtonClick = (percentage: any) => {
-    if (selected === percentage && switched === false) {
-      setAmountToSend(8.25);
-      setAmountToReceive(121.27);
-      setSelected(null);
-    } else if (selected === percentage && switched === true) {
+    if (selected === percentage) {
       setAmountToSend(8.25);
       setAmountToReceive(121.27);
       setSelected(null);
     } else {
-      setAmountToSend((prevAmount) => prevAmount * (percentage / 100));
-      setAmountToReceive((prevAmount) => prevAmount * (percentage / 100));
+      const newAmountToSend = 8.25 * (percentage / 100);
+      const newAmountToReceive = 121.27 * (percentage / 100);
+      setAmountToSend(newAmountToSend);
+      setAmountToReceive(newAmountToReceive);
       setSelected(percentage);
     }
   };
 
   function handleMaxAmount() {
-    if (switched) {
-      setAmountToSend(8.25);
-      setAmountToReceive(121.27);
-      setSelected(null);
-    } else {
-      setAmountToSend(8.25);
-      setAmountToReceive(121.27);
-      setSelected(null);
-    }
+    setAmountToSend(8.25);
+    setAmountToReceive(121.27);
+    setSelected(null);
   }
 
   const handleSwitch = () => {
@@ -53,26 +60,26 @@ const CancelButton = () => {
       }}
     >
       <AnimatePresence>
-        <div className='relative my-12 flex w-3/5 flex-col'>
-          <div className='full min-h-[20em] rounded-[40px] border border-[#1F1F1E] bg-[#111110] p-6'>
+        <div className='relative flex w-[88%] flex-col lg:w-3/5'>
+          <div className='full rounded-[30px] border border-[#212122] bg-[#0d0d0e] p-6'>
             <div className='mb-6 flex select-none items-center justify-between border-b border-[#1B1B1A] pb-6'>
-              <div className='flex gap-3'>
+              <div className='flex items-center gap-3'>
                 <motion.img
-                  className='h-14'
+                  className='h-10 lg:h-14'
                   src={switched ? '/info/ada.png' : '/info/dot.png'}
                   height='120'
                   alt={switched ? 'Cardano' : 'Polkadot'}
                 />
                 <div className='flex flex-col justify-center'>
-                  <p className='m-0 text-lg font-bold text-[#FFFFFF]'>
+                  <p className='m-0 text-[18px] font-bold text-[#FFFFFF] '>
                     You pay
                   </p>
                   {switched ? (
-                    <p className='m-0 font-medium text-[#787878]'>
+                    <p className='m-0 text-sm text-[#787878] lg:text-base'>
                       Balance: 121.27
                     </p>
                   ) : (
-                    <p className='m-0 font-medium text-[#787878]'>
+                    <p className='m-0 text-sm text-[#787878] lg:text-base'>
                       Balance: 8.25
                     </p>
                   )}
@@ -80,12 +87,11 @@ const CancelButton = () => {
               </div>
               <div>
                 <motion.button
-                  whileTap={{ scale: amountToSend === 8.25 ? 1 : 0.95 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     handleMaxAmount();
                   }}
-                  disabled={amountToSend === 8.25}
-                  className='rounded-full border border-[#1F1F1E] bg-[#0F0F0D] p-2 px-3 disabled:opacity-50'
+                  className='rounded-full border border-[#212122] bg-[#08090A] px-3 py-1 text-base text-[#9A9A9A] transition-colors hover:text-[#EDEEF0] lg:text-lg'
                 >
                   Use Max
                 </motion.button>
@@ -143,9 +149,13 @@ const CancelButton = () => {
                   alt={switched ? 'Cardano' : 'Polkadot'}
                 />
                 {switched ? (
-                  <p className='m-0 text-[#787878]'>1 ADA = 0.07 DOT</p>
+                  <p className='m-0 text-sm text-[#787878] lg:text-base'>
+                    1 ADA = 0.07 DOT
+                  </p>
                 ) : (
-                  <p className='m-0 text-[#787878]'>1 DOT = 14.70 ADA</p>
+                  <p className='m-0 text-sm text-[#787878] lg:text-base'>
+                    1 DOT = 14.70 ADA
+                  </p>
                 )}
               </div>
 
@@ -156,7 +166,7 @@ const CancelButton = () => {
                     scale: selected === null || selected === 10 ? 0.95 : 1,
                   }}
                   disabled={selected !== 10 && selected !== null}
-                  className='rounded-full border border-[#1F1F1E] bg-[#0F0F0D] p-1 px-3  disabled:opacity-60'
+                  className='rounded-full border border-[#212122] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20'
                 >
                   10%
                 </motion.button>
@@ -166,7 +176,7 @@ const CancelButton = () => {
                     scale: selected === null || selected === 25 ? 0.95 : 1,
                   }}
                   disabled={selected !== 25 && selected !== null}
-                  className='rounded-full border border-[#1F1F1E] bg-[#0F0F0D] p-1 px-3  disabled:opacity-60'
+                  className='rounded-full border border-[#212122] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20 '
                 >
                   25%
                 </motion.button>
@@ -176,7 +186,7 @@ const CancelButton = () => {
                     scale: selected === null || selected === 50 ? 0.95 : 1,
                   }}
                   disabled={selected !== 50 && selected !== null}
-                  className='rounded-full border border-[#1F1F1E] bg-[#0F0F0D] p-1 px-3  disabled:opacity-60'
+                  className='rounded-full border border-[#212122] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20 '
                 >
                   50%
                 </motion.button>
@@ -184,40 +194,57 @@ const CancelButton = () => {
             </div>
           </div>
 
-          <div className='relative mx-auto h-4 w-10'>
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={handleSwitch}
-              className='absolute -top-3 transform rounded-full border border-[#1F1F1E] bg-[#0B0B09] p-2'
-            >
-              <img
-                className='h-5'
-                src='/exchange.svg'
-                height='120'
-                alt='Exchange'
-              />
-            </motion.button>
+          <div className='relative mx-auto h-3 w-full'>
+            <div className='absolute -top-3 left-0 right-0 mx-auto w-fit transform '>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={handleSwitch}
+                className='relative rounded-full border border-[#212122] bg-[#08090A] p-3'
+              >
+                <motion.div
+                  key={amountToSend}
+                  animate={{
+                    rotate: 1200,
+                    opacity: [0, 1, 0],
+                  }}
+                  style={{ opacity: 0 }}
+                  transition={{
+                    ease: 'linear',
+                    duration: 2,
+                    times: [0, 0.5, 1],
+                  }}
+                  className='absolute inset-0 rounded-full border border-transparent border-b-[#424241]'
+                ></motion.div>
+
+                <img
+                  className='h-5 w-5'
+                  src='/exchange.svg'
+                  height='120'
+                  alt='Exchange'
+                />
+              </motion.button>
+            </div>
           </div>
 
-          <div className='rounded-[40px] border border-[#1F1F1E] bg-[#111110] p-6'>
+          <div className='rounded-[30px] border border-[#212122] bg-[#0d0d0e] p-6'>
             <div className='flex select-none items-center justify-between'>
-              <div className='flex gap-3'>
+              <div className='flex items-center gap-3'>
                 <img
-                  className='h-14'
+                  className='h-10 lg:h-14'
                   src={switched ? '/info/dot.png' : '/info/ada.png'}
                   height='120'
                   alt={switched ? 'Polkadot' : 'Cardano'}
                 />
                 <div className='flex flex-col justify-center'>
-                  <p className='m-0 text-lg font-bold text-[#FFFFFF]'>
+                  <p className='m-0 text-[18px] font-bold text-[#FFFFFF]'>
                     You receive
                   </p>
                   {switched ? (
-                    <p className='m-0 font-medium text-[#787878]'>
+                    <p className='m-0 text-base text-[#787878] '>
                       Balance: 8.25
                     </p>
                   ) : (
-                    <p className='m-0 font-medium text-[#787878]'>
+                    <p className='m-0 text-base text-[#787878]'>
                       Balance: 121.27
                     </p>
                   )}
@@ -228,11 +255,14 @@ const CancelButton = () => {
                   initial={{ filter: 'blur(2px)' }}
                   animate={{ filter: 'blur(0px)' }}
                   exit={{ filter: 'blur(2px)' }}
-                  key={amountToSend}
+                  key={displayedAmountToSend}
                   transition={{
                     duration: 0.8,
                     type: 'spring',
                     bounce: 0,
+                  }}
+                  style={{
+                    opacity: isUpdatingAmount ? 0.3 : 1,
                   }}
                   className='m-0 text-[28px] font-extrabold text-white'
                 >
@@ -248,7 +278,7 @@ const CancelButton = () => {
                         bounce: 0.2,
                       }}
                     >
-                      {amountToSend.toFixed(2)}
+                      {displayedAmountToSend.toFixed(2)}
                     </motion.span>
                   ) : (
                     <motion.span
@@ -262,7 +292,7 @@ const CancelButton = () => {
                         bounce: 0.2,
                       }}
                     >
-                      {amountToReceive.toFixed(2)}
+                      {displayedAmountToReceive.toFixed(2)}
                     </motion.span>
                   )}
                 </motion.h5>
