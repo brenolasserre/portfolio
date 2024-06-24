@@ -29,72 +29,25 @@ export default function SharedLayout() {
   };
 
   return (
-    <div className='relative mx-auto mb-12 flex h-full w-[85%] flex-col items-center justify-center rounded-b-[50px] border-t-0 bg-[#010409] px-6 pb-6 pt-1 md:w-1/2 '>
-      <span className='absolute top-0 z-40 h-28 w-full bg-gradient-to-b from-[#08090A] to-transparent ' />
+    <div className='relative mx-auto flex h-full w-[85%] flex-col items-center justify-center px-6 pb-6 pt-1 md:w-1/2 '>
+      {/* <span className='absolute top-0 z-40 h-28 w-full bg-gradient-to-b from-[#08090A] to-transparent ' /> */}
 
-      <MotionConfig transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}>
-        {modalOpen ? (
+      <MotionConfig transition={{ type: 'spring', bounce: 0.1, duration: 0.3 }}>
+        {/* {modalOpen ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className='pointer-events-none absolute inset-0 top-0 h-full w-full rounded-b-[44px] bg-[#2e0a0da6] backdrop-blur-[4px]'
           />
-        ) : null}
-
-        <div>
-          <ul className='flex flex-col gap-2'>
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#0a0a0a]'>
-              <img
-                className='rounded-none'
-                src='/modal/projects.svg'
-                alt='Projects Icon'
-              />
-              My Projects
-            </li>
-            <li className='flex items-center gap-2 rounded-md px-3 py-2 text-sm text-[#EDEEF0]'>
-              <img
-                className='rounded-none'
-                src='/modal/settings.svg'
-                alt='Settings Icon'
-              />
-              Settings
-            </li>
-
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#0a0a0a]'>
-              <img
-                className='rounded-none'
-                src='/modal/collab.svg'
-                alt='Collab Icon'
-              />
-              Collaborators
-            </li>
-            <li className='flex items-center gap-2 rounded-md  px-3 py-2 text-sm text-[#EDEEF0] transition-all hover:cursor-pointer hover:bg-[#0a0a0a]'>
-              <img
-                className='rounded-none'
-                src='/modal/security.svg'
-                alt='Security Icon'
-              />
-              Security
-            </li>
-          </ul>
-
-          <p className='mb-1 mt-8 text-[15px] font-semibold text-[#EDEEF0]'>
-            Delete this project
-          </p>
-
-          <p className='mb-8 text-sm text-[#757779]'>
-            Once you delete a project, there is no going back. Please be
-            certain.
-          </p>
-        </div>
+        ) : null} */}
 
         <AnimatePresence mode='popLayout'>
           {modalOpen ? (
             <motion.div
-              className='custom-width absolute bottom-4 z-40 p-6 text-center '
+              className='bottom-4 z-40 w-full border border-[#212122] p-6 pt-9 text-center '
               layoutId='modal-wrapper'
-              style={{ borderRadius: 36, background: '#010205' }}
+              style={{ borderRadius: 36, background: '#0d0d0e' }}
             >
               <motion.div layoutId='modal'>
                 <div className='header'>
@@ -105,64 +58,26 @@ export default function SharedLayout() {
                         layoutId='content'
                         initial={{
                           y: 10,
+                          scale: 0.8,
                           opacity: 0,
-                          filter: 'blur(0px)',
+                          filter: 'blur(4px)',
                         }}
                         animate={{
                           y: 0,
+                          scale: 1,
                           opacity: 1,
                           filter: 'blur(0px)',
                         }}
-                        transition={{ duration: 0.3 }}
                         exit={{ y: 10, opacity: 0, filter: 'blur(2px)' }}
                         className='mb-8'
                       >
-                        <motion.span
-                          layoutId='icon-span'
-                          layout='position'
-                          className='mb-4 mt-2 flex items-center justify-center'
-                        >
-                          <motion.svg
-                            animate={{ opacity: 1, y: 0 }}
-                            initial={{ y: 20, opacity: 0 }}
-                            layout='position'
-                            layoutId='icon-outer'
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            strokeWidth={1.5}
-                            stroke='white'
-                            className='h-7 w-7'
-                          >
-                            <motion.path
-                              layout='position'
-                              layoutId='icon'
-                              transition={{
-                                yoyo: Infinity,
-                                duration: 0.35,
-                              }}
-                              initial={{
-                                pathLength: 0,
-                                y: 20,
-                                filter: 'blur(4px)',
-                              }}
-                              animate={{
-                                pathLength: 1,
-                                y: 0,
-                                filter: 'blur(0px)',
-                              }}
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z'
-                            />
-                          </motion.svg>
-                        </motion.span>
                         <motion.h2
                           layoutId='header'
                           layout='position'
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
                           exit={{ opacity: 0 }}
-                          className='my-2 text-xl font-semibold text-[#EDEEF0]'
+                          className='mt-2 text-2xl font-bold text-[#fff]'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
@@ -178,7 +93,7 @@ export default function SharedLayout() {
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
                           exit={{ opacity: 0 }}
-                          className='text-[15px] text-[#757779]'
+                          className='text-[15px] text-[#787878]'
                         >
                           <motion.span
                             className='flex items-center justify-center gap-1'
@@ -196,27 +111,6 @@ export default function SharedLayout() {
                         layoutId='content'
                         className='mb-8'
                       >
-                        <motion.span
-                          layout='position'
-                          layoutId='icon-span'
-                          className='mb-4 mt-2  flex items-center justify-center'
-                        >
-                          <motion.svg
-                            layoutId='icon-outer'
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            strokeWidth={1.5}
-                            stroke='white'
-                            className='h-7 w-7'
-                          >
-                            <motion.path
-                              layoutId='icon'
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              d='M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
-                            />
-                          </motion.svg>
-                        </motion.span>
                         <motion.h2
                           layoutId='header'
                           layout='position'
@@ -247,7 +141,7 @@ export default function SharedLayout() {
 
                     <div className='flex w-full items-center gap-2'>
                       <motion.button
-                        whileTap={{ scale: 0.9 }}
+                        whileTap={{ scale: 0.95 }}
                         onClick={() => {
                           setModalOpen((prevState: boolean) => !prevState);
                           setButtonState('idle');
@@ -275,13 +169,13 @@ export default function SharedLayout() {
                           borderRadius: 14,
                           display: buttonState === 'idle2' ? 'block' : 'none',
                         }}
-                        className='w-1/2 rounded-full bg-[#EDEDED] py-2 text-black'
+                        className='w-1/2 rounded-full border border-[#21212275] bg-[#08090A] py-2 text-[#eaeaea]'
                       >
                         Cancel
                       </motion.button>
                       <motion.button
                         whileTap={{
-                          scale: buttonState === 'loading' ? 1 : 0.9,
+                          scale: buttonState === 'loading' ? 1 : 0.95,
                         }}
                         layoutId='button-layout'
                         style={{
@@ -289,7 +183,7 @@ export default function SharedLayout() {
                           fontSize: 16,
                           width: buttonState === 'loading' ? '100%' : '50%',
                         }}
-                        className='relative flex items-center justify-center gap-1 bg-[#ff31311e] py-2  text-[#DA3036]'
+                        className='relative flex items-center justify-center gap-1 border border-[#ff484e3b]  bg-[#ff171733] py-2  text-[#e93036]'
                         disabled={buttonState === 'loading'}
                         onClick={() => {
                           setButtonState('loading');
@@ -357,14 +251,14 @@ export default function SharedLayout() {
             <motion.div layoutId='modal' className='inner'>
               <div className='w-full'>
                 <motion.button
-                  whileTap={{ scale: 0.9 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     setModalOpen((prevState: boolean) => !prevState);
                     setButtonState('idle2');
                   }}
                   layoutId='button-layout'
                   style={{ borderRadius: 14, width: '100%' }}
-                  className=' bg-[#1F080A] px-20 py-2 text-[16px] text-[#DA3036]'
+                  className=' border border-[#ff484e3b] bg-[#ff171733] px-20 py-2 text-[16px] text-[#e93036]'
                 >
                   <motion.span
                     className='mx-auto block w-max'
@@ -378,7 +272,7 @@ export default function SharedLayout() {
             </motion.div>
           </motion.div>
         </AnimatePresence>
-        <span className='mb-0 mt-6 h-[5px] w-1/2 rounded-full bg-[#919392]'></span>
+        {/* <span className='mb-0 mt-6 h-[5px] w-1/2 rounded-full bg-[#919392]'></span> */}
       </MotionConfig>
     </div>
   );

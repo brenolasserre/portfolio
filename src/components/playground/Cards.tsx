@@ -13,7 +13,6 @@ const Cards = () => {
         color: '#33fba1',
         textColor: 'text-[#33fba1]',
         title: '5',
-        svg: '/cards/chat.svg',
       },
 
       {
@@ -23,7 +22,6 @@ const Cards = () => {
         color: '#2fa7ed',
         textColor: 'text-[#2fa7ed]',
         title: '2',
-        svg: '/cards/settings.svg',
       },
       {
         id: 3,
@@ -32,7 +30,6 @@ const Cards = () => {
         color: '#57cc99',
         textColor: 'text-[#57cc99]',
         title: '3',
-        svg: '/cards/private.svg',
       },
       {
         id: 4,
@@ -41,7 +38,6 @@ const Cards = () => {
         color: '#57cc99',
         textColor: 'text-[#57cc99]',
         title: '1',
-        svg: '/cards/db.svg',
       },
     ],
     [],
@@ -82,7 +78,7 @@ const Cards = () => {
             return (
               <motion.div
                 key={card.id}
-                className={`absolute h-40 w-72 rounded-xl border border-[#212122] bg-[#101114] p-4 text-black shadow-[0_-20px_10px_-16px_rgba(8,9,10,.6)] `}
+                className={`absolute h-40 w-[88%] flex-col rounded-[30px] border border-[#212122] bg-[#0D0D0E] p-4 text-black shadow-[0_-20px_10px_-16px_rgba(8,9,10,.6)] lg:w-3/5 `}
                 style={{
                   zIndex,
                 }}
@@ -92,32 +88,25 @@ const Cards = () => {
                 transition={{
                   duration: 0.9,
                   type: 'spring',
-                  bounce: 0.4,
+                  bounce: 0.3,
                 }}
               >
                 <div className='flex items-center gap-1'>
                   <span
                     className={`rounded-full ${card.backgroundColor} p-[6px]`}
                   >
-                    <img src={card.svg} alt={card.title} className='h-5 w-5' />
+                    {card.id}
                   </span>
                 </div>
               </motion.div>
             );
           })}
         </div>
-        <div className='relative mx-auto mt-4 flex w-fit justify-center rounded-full border border-[#212122] bg-[#101114] p-2'>
-          {cards.map((card, index) => (
-            <motion.img
-              key={card.id}
-              src={card.svg}
-              alt={card.title}
-              className={`z-40 mx-2 h-5 w-5 cursor-pointer ${index === currentCard ? 'opacity-100' : 'opacity-40 grayscale'}`}
-              onClick={() => handleCardClick(index)}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2 }}
-            />
-          ))}
+        <div
+          onClick={() => handleCardClick(currentCard + 1)}
+          className='relative mx-auto mt-4 flex w-fit justify-center rounded-full border border-[#212122] bg-[#101114] p-2'
+        >
+          continue
         </div>
       </AnimatePresence>
     </div>

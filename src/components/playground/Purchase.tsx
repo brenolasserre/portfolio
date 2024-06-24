@@ -28,7 +28,7 @@ const Receipt = () => {
       <motion.div className=' flex w-full flex-col items-center justify-center gap-4'>
         <motion.div
           animate={{ height: bounds.height }}
-          className='flex w-[85%] flex-col gap-3 rounded-3xl bg-[#0D0D0E] md:w-1/2'
+          className='-z-0 flex w-[85%] flex-col gap-3 rounded-3xl border border-[#212122] bg-[#0D0D0E] md:w-1/2'
         >
           <div ref={ref} className='py-10'>
             <img
@@ -114,8 +114,8 @@ const Receipt = () => {
             </p>
 
             <div className='relative mb-4 h-4 w-full'>
-              <span className='absolute left-0 h-full w-2 rounded-r-full bg-[#08090A]' />
-              <span className='absolute right-0 h-full w-2 rounded-l-full bg-[#08090A]' />
+              <span className='absolute left-0 z-40 h-full w-2 rounded-r-full bg-[#08090A]' />
+              <span className='absolute right-0 z-40 h-full w-2 rounded-l-full bg-[#08090A]' />
             </div>
 
             <div className='px-8 '>
