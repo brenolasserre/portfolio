@@ -63,7 +63,7 @@ const Shake = () => {
       <div className='flex justify-center gap-10'>
         <button
           type='button'
-          className='rounded-full border border-[#212122] bg-black px-3 py-1 text-white'
+          className='rounded-full border border-[#19191A] bg-black px-3 py-1 text-white'
           onClick={() => {
             controls.start('start');
           }}
@@ -71,7 +71,7 @@ const Shake = () => {
           Delete
         </button>
         <button
-          className='rounded-full border border-[#212122] bg-black px-3 py-1 text-white'
+          className='rounded-full border border-[#19191A] bg-black px-3 py-1 text-white'
           type='button'
           onClick={() => {
             controls.stop();

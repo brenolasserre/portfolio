@@ -30,24 +30,13 @@ export default function SharedLayout() {
 
   return (
     <div className='relative mx-auto flex h-full w-[85%] flex-col items-center justify-center px-6 pb-6 pt-1 md:w-1/2 '>
-      {/* <span className='absolute top-0 z-40 h-28 w-full bg-gradient-to-b from-[#08090A] to-transparent ' /> */}
-
       <MotionConfig transition={{ type: 'spring', bounce: 0.1, duration: 0.3 }}>
-        {/* {modalOpen ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className='pointer-events-none absolute inset-0 top-0 h-full w-full rounded-b-[44px] bg-[#2e0a0da6] backdrop-blur-[4px]'
-          />
-        ) : null} */}
-
         <AnimatePresence mode='popLayout'>
           {modalOpen ? (
             <motion.div
-              className='bottom-4 z-40 w-full border border-[#212122] p-6 pt-9 text-center '
+              className='bottom-4 z-40 w-full border border-[#19191A] p-6 pt-9 text-center '
               layoutId='modal-wrapper'
-              style={{ borderRadius: 36, background: '#0d0d0e' }}
+              style={{ borderRadius: 28, background: '#0d0d0e' }}
             >
               <motion.div layoutId='modal'>
                 <div className='header'>
@@ -106,6 +95,7 @@ export default function SharedLayout() {
                       </motion.div>
                     ) : (
                       <motion.div
+                        initial={{ opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.8, opacity: 0 }}
                         layoutId='content'
@@ -169,7 +159,7 @@ export default function SharedLayout() {
                           borderRadius: 14,
                           display: buttonState === 'idle2' ? 'block' : 'none',
                         }}
-                        className='w-1/2 rounded-full border border-[#21212275] bg-[#08090A] py-2 text-[#eaeaea]'
+                        className='w-1/2 rounded-full border border-[#19191A75] bg-[#08090A] py-2 text-[#eaeaea]'
                       >
                         Cancel
                       </motion.button>
@@ -239,6 +229,7 @@ export default function SharedLayout() {
             </motion.div>
           ) : null}
         </AnimatePresence>
+
         <AnimatePresence mode='popLayout' initial={false}>
           <motion.div
             layoutId='modal-wrapper'
@@ -272,7 +263,6 @@ export default function SharedLayout() {
             </motion.div>
           </motion.div>
         </AnimatePresence>
-        {/* <span className='mb-0 mt-6 h-[5px] w-1/2 rounded-full bg-[#919392]'></span> */}
       </MotionConfig>
     </div>
   );

@@ -72,8 +72,8 @@ const CancelButton = () => {
 
   return (
     <AnimatePresence initial={false}>
-      <div className='relative flex w-[88%] flex-col lg:w-3/5'>
-        <div className='full rounded-[30px] border border-[#212122] bg-[#0d0d0e] p-6'>
+      <div className='relative flex flex-col'>
+        <div className='full rounded-[20px] border border-[#19191A] bg-[#0d0d0e] p-6'>
           <motion.div>
             <div className='mb-6 flex select-none items-center justify-between border-b border-[#1B1B1A] pb-6'>
               <div className='flex items-center gap-3'>
@@ -117,7 +117,7 @@ const CancelButton = () => {
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={handleMaxAmount}
-                  className='rounded-full border border-[#212122] bg-[#08090A] px-3 py-1 text-base text-[#9A9A9A] transition-colors hover:text-[#EDEEF0] lg:text-lg'
+                  className='rounded-full border border-[#19191A] bg-[#08090A] px-3 py-1 text-base text-[#9A9A9A] transition-colors hover:text-[#EDEEF0] lg:text-lg'
                 >
                   Use Max
                 </motion.button>
@@ -215,7 +215,7 @@ const CancelButton = () => {
                     scale: selected === null || selected === 10 ? 0.95 : 1,
                   }}
                   disabled={selected !== 10 && selected !== null}
-                  className='rounded-full border border-[#212122] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20'
+                  className='rounded-full border border-[#19191A] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20'
                 >
                   10%
                 </motion.button>
@@ -225,7 +225,7 @@ const CancelButton = () => {
                     scale: selected === null || selected === 25 ? 0.95 : 1,
                   }}
                   disabled={selected !== 25 && selected !== null}
-                  className='rounded-full border border-[#212122] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20 '
+                  className='rounded-full border border-[#19191A] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20 '
                 >
                   25%
                 </motion.button>
@@ -235,7 +235,7 @@ const CancelButton = () => {
                     scale: selected === null || selected === 50 ? 0.95 : 1,
                   }}
                   disabled={selected !== 50 && selected !== null}
-                  className='rounded-full border border-[#212122] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20 '
+                  className='rounded-full border border-[#19191A] bg-[#08090A] px-3 py-1 text-base disabled:opacity-20 '
                 >
                   50%
                 </motion.button>
@@ -249,7 +249,7 @@ const CancelButton = () => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={handleSwitch}
-              className='relative rounded-full border border-[#212122] bg-[#08090A] p-3'
+              className='relative rounded-full border border-[#19191A] bg-[#08090A] p-3'
             >
               <motion.div
                 key={amountToSend}
@@ -276,7 +276,7 @@ const CancelButton = () => {
           </div>
         </div>
 
-        <div className='rounded-[30px] border border-[#212122] bg-[#0d0d0e] p-6'>
+        <div className='rounded-[20px] border border-[#19191A] bg-[#0d0d0e] p-6'>
           <motion.div
             key={switchNumber}
             transition={{

@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import Component from '../../layouts/Component.astro';
 
 const posts = await getCollection('blog');
 type Props = CollectionEntry<'blog'>;
@@ -11,6 +11,6 @@ if (!post) return Astro.redirect('/404');
 const { Content } = await post.render();
 ---
 
-<BlogPost {...post.data}>
+<Component {...post.data}>
   <Content />
-</BlogPost>
+</Component>

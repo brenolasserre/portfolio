@@ -4,7 +4,7 @@ interface Props {
 }
 const { title } = Astro.props;
 import '../styles/global.css';
-import Navbar from '@/components/Navbar.astro';
+import Navbar from '@/components/Navbar';
 ---
 
 <!-- 
@@ -58,13 +58,20 @@ import Navbar from '@/components/Navbar.astro';
 
     <!-- Web App Manifest -->
     <link rel='manifest' href='/site.webmanifest' />
-
+    <!-- Breno lasserre - {title} -->
     <meta name='generator' content={Astro.generator} />
-    <title>Breno Lasserre - {title}</title>
+    <title>Breno Lasserre</title>
   </head>
   <body>
-    <Navbar />
-
+    <Navbar client:idle />
+    <div class='gradient-blur'>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <div
       class='gradientTop fixed left-0 top-0 z-50 h-[50px] w-full bg-gradient-to-b from-[#0D0D0D] to-transparent'
     >
@@ -73,14 +80,3 @@ import Navbar from '@/components/Navbar.astro';
     <slot />
   </body>
 </html>
-
-<style>
-  :root {
-    color-scheme: dark;
-  }
-  main {
-    margin: auto;
-    width: 700px;
-    max-width: calc(100% - 2rem);
-  }
-</style>

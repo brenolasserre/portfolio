@@ -1,24 +1,18 @@
 ---
-title: 'Purchase Confirmation'
+title: 'Crypto Exchange'
 description: 'Lorem ipsum dolor sit amet'
 ---
 
-import Widget from '../../components/playground/Purchase.tsx';
+import Exchange from '../../components/playground/Exchange.tsx';
 import Contenedor from '../../components/playground/Contenedor.tsx';
 
-##### **Purchase Receipt**
+##### **Crypto Exchange**
 
 It all started with this interaction.
 I like having confirmation modals for irreversible actions like deleting a project. But most existing options feel clunky, so I decided to experiment with creating my own using Framer Motion.
 
 <br />
 
-<Contenedor
-  arrow={false}
-  descripcion='Purchase Confirmation'
-  tags='framer-motion'
-  showDescription={false}
-  client:load
->
-  <Widget client:load />
+<Contenedor arrow={false} showDescription={false} client:load>
+  <Exchange client:load />
 </Contenedor>

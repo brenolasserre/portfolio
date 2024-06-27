@@ -78,7 +78,7 @@ const Cards = () => {
             return (
               <motion.div
                 key={card.id}
-                className={`absolute h-40 w-[88%] flex-col rounded-[30px] border border-[#212122] bg-[#0D0D0E] p-4 text-black shadow-[0_-20px_10px_-16px_rgba(8,9,10,.6)] lg:w-3/5 `}
+                className={`absolute h-40 w-[88%] flex-col rounded-[30px] border border-[#19191A] bg-[#0D0D0E] p-4 text-black shadow-[0_-20px_10px_-16px_rgba(8,9,10,.6)] lg:w-3/5 `}
                 style={{
                   zIndex,
                 }}
@@ -104,7 +104,7 @@ const Cards = () => {
         </div>
         <div
           onClick={() => handleCardClick(currentCard + 1)}
-          className='relative mx-auto mt-4 flex w-fit justify-center rounded-full border border-[#212122] bg-[#101114] p-2'
+          className='relative mx-auto mt-4 flex w-fit justify-center rounded-full border border-[#19191A] bg-[#101114] p-2'
         >
           continue
         </div>

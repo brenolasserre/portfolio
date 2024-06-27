@@ -15,7 +15,7 @@ const Receipt = () => {
     <div className='mb-16'>
       <div
         className='max-w-22 flex w-full flex-col rounded-t-xl border
- border-b-0 border-[#212122] bg-[#08090A] bg-[size:20px_20px]'
+ border-b-0 border-[#19191A] bg-[#08090A] bg-[size:20px_20px]'
       >
         <div className='relative h-full w-full'>
           <div className='absolute top-0 z-40 flex w-full items-center justify-end p-4'>
@@ -121,10 +121,10 @@ const Receipt = () => {
           </div>
         </div>
       </div>
-      <p className='flex w-full items-center justify-center gap-4 rounded-b-xl border border-[#212122] bg-[#101113] px-6 py-4 text-center text-xs text-[#8B8B8B]'>
+      <p className='flex w-full items-center justify-center gap-4 rounded-b-xl border border-[#19191A] bg-[#101113] px-6 py-4 text-center text-xs text-[#8B8B8B]'>
         <p className='m-0'>
           <button
-            className='rounded-lg border border-[#212122] bg-[#08090A] px-4 py-3 text-[14px]'
+            className='rounded-lg border border-[#19191A] bg-[#08090A] px-4 py-3 text-[14px]'
             onClick={() => renderToast()}
           >
             Render A Toast

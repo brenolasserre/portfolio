@@ -5,7 +5,7 @@ const { title, description } = Astro.props;
 
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Navbar from '@/components/Navbar.astro';
+import Navbar from '@/components/Navbar';
 import '../styles/global.css';
 ---
 
@@ -50,7 +50,7 @@ import '../styles/global.css';
       pre {
         margin: 0;
         border-radius: 12px;
-        border: 1px solid #212122 !important;
+        border: 1px solid #19191a !important;
         background-color: #08090a !important;
         padding: 2rem 2rem;
         font-family: monospace;
@@ -70,17 +70,20 @@ import '../styles/global.css';
 
       a {
         color: #a1a1a1 !important;
-        text-decoration: underline !important;
+        /* text-decoration: underline !important; */
       }
       a:hover {
         color: #eaeaea !important;
         transition: color ease-in-out 0.2s;
       }
+      h5 {
+        margin-bottom: 0.75em;
+      }
     </style>
   </head>
 
   <body>
-    <Navbar />
+    <Navbar client:load />
     <main>
       <div
         class='gradientTop fixed left-0 top-0 z-50 h-[50px] w-full bg-gradient-to-b from-[#111213] to-transparent'
@@ -88,20 +91,50 @@ import '../styles/global.css';
       </div>
       <a
         href='/playground'
-        class='mb-12 flex items-center gap-2 text-[15px] text-[#757779] transition hover:text-white md:text-base'
+        id='goBack'
+        class='mb-10 flex w-fit items-center gap-1 p-2 pl-0 text-[15px] font-normal text-[#757779] transition hover:font-medium hover:text-white md:text-base'
       >
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke-width='1.5'
-          stroke='currentColor'
-          class='h-4 w-4'
-        >
-          <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            d='M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3'></path>
+        <svg width='26' viewBox='0 0 100 100'>
+          <g id='moveGroup'>
+            <line
+              x1='30'
+              y1='50'
+              x2='80'
+              y2='50'
+              stroke='currentColor'
+              stroke-width='5'
+            >
+            </line>
+            <polyline
+              points='50 70, 30 50, 50 30'
+              fill='none'
+              stroke='currentColor'
+              stroke-width='5'
+              stroke-linejoin='round'
+              stroke-linecap='round'></polyline>
+            <animateTransform
+              attributeName='transform'
+              type='translate'
+              values='0 0; -80 0; -150 0'
+              keyTimes='0; 0.5; 1'
+              begin='goBack.mouseenter'
+              dur='.2s'
+              fill='freeze'
+              keySplines='0.42 0 1 1; 0.42 0 0.58 1'
+            >
+            </animateTransform>
+            <animateTransform
+              attributeName='transform'
+              type='translate'
+              values='200 0; -10 0; 0 0'
+              keyTimes='0; 0.6; 1'
+              begin='goBack.mouseenter + .1s'
+              dur='.4s'
+              fill='freeze'
+              keySplines='0.42 0 1 1; 0.42 0 0.58 1'
+            >
+            </animateTransform>
+          </g>
         </svg>
         Go back
       </a>

@@ -1,0 +1,55 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog')).sort();
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      ul li img {
+        border: 1px solid #19191a;
+        border-radius: 10px;
+      }
+
+      ul p {
+        margin: 12px 0;
+      }
+      :root {
+        color-scheme: dark;
+      }
+      main {
+        margin: auto;
+        width: 700px;
+        max-width: calc(100% - 2rem);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <ul class='grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
+          {
+            posts.map((post) => (
+              <a href={`/playground/${post.slug}/`}>
+                <li class='rounded-2xl border border-[#19191A] p-4'>
+                  <img
+                    src={`/screenshots/${post.slug}.png`}
+                    alt={post.slug + 'Component'}
+                  />
+
+                  <p class='w-full font-medium text-[#EEEEEC]'>
+                    {post.data.title}
+                  </p>
+                </li>
+              </a>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
