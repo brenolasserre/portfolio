@@ -1,39 +1,32 @@
 'use client';
 
 import { useState } from 'react';
-import useMeasure from 'react-use-measure';
 
-import {
-  motion,
-  AnimatePresence,
-  MotionConfig,
-  easeInOut,
-  easeIn,
-  easeOut,
-} from 'framer-motion';
+import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 
 export default function SharedLayout() {
   const [open, setOpen] = useState<boolean>(false);
-  const [ref, bounds] = useMeasure();
 
   return (
     <MotionConfig
       transition={{
-        duration: 0.45,
+        duration: 0.4,
         type: 'spring',
-        bounce: 0,
+        bounce: 0.3,
       }}
     >
       <div className='flex w-full items-center justify-center gap-2'>
         <motion.div className='flex items-center justify-between'>
-          <motion.div className='w-fit'>
+          <motion.div
+            style={{ width: '2.5em' }}
+            animate={{
+              width: open ? '6em' : '2.5em',
+            }}
+          >
             {open ? (
               <AnimatePresence initial={false}>
                 <motion.div
                   className='flex items-center justify-center gap-2'
-                  initial='hidden'
-                  animate='visible'
-                  exit='hidden'
                   style={{ height: '40px' }}
                 >
                   <motion.button
@@ -44,17 +37,27 @@ export default function SharedLayout() {
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0 }}
-                      transition={{ delay: 0.4 }}
+                      transition={{
+                        duration: 0.4,
+                        type: 'spring',
+                        bounce: 0,
+                        delay: 0.3,
+                      }}
                       src='/chat/close.svg'
                       alt='close'
                     />
                   </motion.button>
                   <motion.button whileTap={{ scale: 0.95 }}>
                     <motion.img
-                      initial={{ opacity: 0, x: -30, scale: 0 }}
+                      initial={{ opacity: 0, x: -20, scale: 0 }}
                       animate={{ opacity: 1, x: 0, scale: 1 }}
-                      exit={{ opacity: 0, x: -30, scale: 0 }}
-                      transition={{ delay: 0.2 }}
+                      exit={{ opacity: 0, x: -20, scale: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        type: 'spring',
+                        bounce: 0,
+                        delay: 0.15,
+                      }}
                       src='/chat/clip.svg'
                       alt='clip'
                     />
@@ -65,6 +68,12 @@ export default function SharedLayout() {
                       initial={{ opacity: 0.5, scale: 0, x: -60 }}
                       animate={{ opacity: 1, scale: 1, x: 0 }}
                       exit={{ opacity: 0, scale: 0, x: -60 }}
+                      transition={{
+                        duration: 0.3,
+                        type: 'spring',
+                        bounce: 0,
+                        delay: 0,
+                      }}
                       src='/chat/img.svg'
                       alt='img'
                     />
@@ -78,9 +87,9 @@ export default function SharedLayout() {
                   style={{ height: '40px' }}
                   onClick={() => setOpen(!open)}
                   className='w-10 rounded-full bg-[#201F20] p-2'
-                  initial={{ opacity: 0, x: 60 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 60 }}
+                  initial={{ scale: 0, opacity: 0, x: 60 }}
+                  animate={{ scale: 1, opacity: 1, x: 0 }}
+                  exit={{ scale: 0, opacity: 0, x: 60 }}
                 >
                   <motion.img src='/chat/add.svg' alt='add' />
                 </motion.button>
@@ -96,10 +105,9 @@ export default function SharedLayout() {
           animate={{
             width: open ? 'calc(100% - 100px)' : '100%',
           }}
-          ref={ref}
         >
           <motion.input
-            placeholder='Message'
+            placeholder='Send a message..'
             className='w-full bg-transparent py-1 pl-4 pr-2 placeholder-[#787878] focus:outline-none'
             style={{ height: '100%' }}
           />
