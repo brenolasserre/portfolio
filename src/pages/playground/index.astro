@@ -1,6 +1,9 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
+import Contenedor from '@/components/playground/Contenedor';
+import ChatGPT from '@/components/playground/ChatGPT';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import Navbar from '@/components/Navbar';
 import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort();
 ---
@@ -29,9 +32,26 @@ const posts = (await getCollection('blog')).sort();
     </style>
   </head>
   <body>
+    <Navbar client:idle />
+    <div class='gradient-blur'>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div
+      class='gradientTop fixed left-0 top-0 z-50 h-[50px] w-full bg-gradient-to-b from-[#0D0D0D] to-transparent'
+    >
+    </div>
     <main>
       <section>
         <ul class='grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2'>
+          <Contenedor>
+            <ChatGPT client:idle />
+          </Contenedor>
+
           {
             posts.map((post) => (
               <a href={`/playground/${post.slug}/`}>

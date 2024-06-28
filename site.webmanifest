@@ -1,0 +1,33 @@
+{
+  "name": "Breno Lasserre",
+  "short_name": "Breno",
+  "description": "This is the portfolio where I share my work!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#201F20",
+  "icons": [
+    {
+      "src": "/favicons/android-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicons/android-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null,
+  "screenshots": null,
+  "scope": "/",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "dir": "auto",
+  "lang": "en",
+  "orientation": "portrait-primary",
+  "serviceworker": {
+    "src": "./sw.js",
+    "scope": "/"
+  }
+}
