@@ -14,18 +14,18 @@ export default function SharedLayout() {
         bounce: 0.3,
       }}
     >
-      <div className='flex w-full items-center justify-center gap-2'>
+      <div className='flex w-full items-center justify-center gap-4'>
         <motion.div className='flex items-center justify-between'>
           <motion.div
             style={{ width: '2.5em' }}
             animate={{
-              width: open ? '6em' : '2.5em',
+              width: open ? '6.5em' : '2.5em',
             }}
           >
             <AnimatePresence initial={false} mode='popLayout'>
               {open ? (
                 <motion.div
-                  className='flex items-center justify-center gap-2'
+                  className='flex items-center justify-between'
                   style={{ height: '40px' }}
                 >
                   <motion.button
@@ -43,8 +43,8 @@ export default function SharedLayout() {
                       transition={{
                         duration: 0.6,
                         type: 'spring',
-                        bounce: 0.3,
-                        delay: 0.3,
+                        bounce: 0.2,
+                        delay: 0.2,
                       }}
                       src='/chat/clip.svg'
                       alt='clip'
@@ -66,8 +66,8 @@ export default function SharedLayout() {
                       transition={{
                         duration: 0.6,
                         type: 'spring',
-                        bounce: 0.3,
-                        delay: 0.2,
+                        bounce: 0.2,
+                        delay: 0.1,
                       }}
                       src='/chat/folder.svg'
                       alt='folder'
@@ -101,7 +101,7 @@ export default function SharedLayout() {
                       transition={{
                         duration: 0.6,
                         type: 'spring',
-                        bounce: 0.3,
+                        bounce: 0.2,
                         delay: 0,
                       }}
                       src='/chat/img.svg'
@@ -114,7 +114,7 @@ export default function SharedLayout() {
                   key='add-button-wrapper'
                   initial={{ filter: 'blur(6px)', scale: 0, opacity: 0, x: 60 }}
                   animate={{ filter: 'blur(0px)', scale: 1, opacity: 1, x: 0 }}
-                  exit={{ filter: 'blur(6px)', opacity: 0, scale: 0, x: 60 }}
+                  exit={{ filter: 'blur(6px)', opacity: 0, scale: 1, x: 60 }}
                   transition={{
                     duration: 0.6,
                     type: 'spring',
@@ -136,7 +136,7 @@ export default function SharedLayout() {
         </motion.div>
 
         <motion.div
-          className='relative ml-auto flex items-center rounded-full border-2 border-[#201F20] text-[#787878]'
+          className='relative ml-auto flex items-center rounded-full border-2 border-[#201F20] text-[#9D9B9E]'
           style={{ height: '40px' }}
           initial={{ width: '100%' }}
           animate={{
@@ -145,7 +145,7 @@ export default function SharedLayout() {
         >
           <motion.input
             placeholder='Send a message..'
-            className='w-full bg-transparent py-1 pl-4 pr-2 placeholder-[#787878] focus:outline-none'
+            className='w-full bg-transparent py-1 pl-4 pr-2 placeholder-[#9D9B9E] focus:outline-none'
             style={{ height: '100%' }}
           />
           <div className='pointer-events-none absolute right-0 top-0 h-full w-10'>
