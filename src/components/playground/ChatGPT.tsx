@@ -14,7 +14,7 @@ export default function SharedLayout() {
         bounce: 0.3,
       }}
     >
-      <div className='flex w-full items-center justify-center gap-4'>
+      <div className='flex w-full items-center justify-center gap-3'>
         <motion.div className='flex items-center justify-between'>
           <motion.div
             style={{ width: '2.5em' }}
@@ -25,7 +25,7 @@ export default function SharedLayout() {
             <AnimatePresence initial={false} mode='popLayout'>
               {open ? (
                 <motion.div
-                  className='flex items-center justify-between'
+                  className='flex items-center justify-center gap-3'
                   style={{ height: '40px' }}
                 >
                   <motion.button
